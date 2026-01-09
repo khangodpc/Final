@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laptop For Us | About Us</title>
+    <style>
+      /* Reset and Fonts */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+      }
+
+      body {
+        background-image: url('https://wallpapers.com/images/hd/4k-tech-ulcajgzzc25jlrgi.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        color: #222;
+        line-height: 1.6;
+      }
+
+      body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.344);
+        z-index: -1;
+      }
+
+      /* 🔙 Back Button */
+      .back-btn {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        background: linear-gradient(135deg, #0052d4, #4364f7, #6fb1fc);
+        color: #fff;
+        padding: 12px 28px;
+        border: none;
+        border-radius: 10px;
+        font-size: 0.7rem;
+        font-weight: 600;
+        font-family: cursive;
+        cursor: pointer;
+        box-shadow: 0 8px 20px rgba(0, 82, 212, 0.25);
+        transition: transform 0.25s ease, box-shadow 0.25s ease,
+          background 0.4s ease;
+        text-decoration: none;
+        z-index: 1000;
+        letter-spacing: 0.5px;
+        backdrop-filter: blur(6px);
+      }
+
+      .back-btn:hover {
+        background: linear-gradient(135deg, #0041b3, #385cf5, #59a4ff);
+        transform: translateY(-3px) scale(1.05);
+        box-shadow: 0 10px 25px rgba(0, 82, 212, 0.35);
+      }
+
+      .back-btn:active {
+        transform: scale(0.98);
+        box-shadow: 0 4px 12px rgba(0, 82, 212, 0.25);
+      }
+
+      /* About Section */
+      .about {
+        max-width: 1100px;
+        margin: 100px auto 50px auto;
+        background: rgba(255, 255, 255, 0.711);
+        border-radius: 20px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        padding: 40px;
+      }
+
+      .about-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 40px;
+      }
+
+      .about-photo {
+        flex: 1;
+        text-align: center;
+      }
+
+      .about-photo img {
+        width: 250px;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 50%;
+        padding: 5px;
+        background: linear-gradient(135deg, #007bff, #00c6ff, #ff00cc);
+        box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+      }
+
+      .photo-caption {
+        margin-top: 15px;
+        font-size: 16pt;
+        font-family: 'Kh Koulen';
+        color: #555;
+        font-weight: 500;
+      }
+
+      .about-text {
+        flex: 2;
+      }
+
+      .about-text h2 {
+        font-size: 2rem;
+        color: #007bff;
+        margin-bottom: 15px;
+        position: relative;
+        font-family: 'Khmer OS Muol Light';
+      }
+
+      .about-text h2::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -6px;
+        width: 60px;
+        height: 3px;
+        background: #007bff;
+        border-radius: 2px;
+      }
+
+      .about-text p {
+        font-size: 1.2rem;
+        color: #000000;
+        text-align: justify;
+        font-family: 'Khmer OS Siemreap';
+      }
+
+      /* Social Section */
+      .social {
+        text-align: center;
+        margin-top: 50px;
+      }
+
+      .social h3 {
+        font-size: 1.5rem;
+        color: #007bff;
+        margin-bottom: 20px;
+        font-family: 'Kh Koulen';
+      }
+
+      .social-platforms {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 25px;
+      }
+
+      .platform {
+        background: white;
+        padding: 15px;
+        border-radius: 15px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        width: 120px;
+        transition: all 0.3s ease;
+      }
+
+      .platform:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 6px 20px rgba(0, 123, 255, 0.3);
+      }
+
+      .platform img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+      }
+
+      .platform p {
+        margin-top: 10px;
+        color: #333;
+        font-family: cursive;
+        font-weight: 500;
+      }
+
+      footer {
+        margin-top: 50px;
+        background-image: linear-gradient(to right, blue, rgb(42, 149, 255));
+        color: white;
+        padding: 10px;
+        font-size: 15pt;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        z-index: 500;
+        text-align: center;
+      }
+
+      marquee {
+        font-family: 'Kh Koulen';
+      }
+
+      @media (max-width: 768px) {
+        .about-container {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .about-photo img {
+          width: 200px;
+          height: 200px;
+        }
+
+        .about-text h2 {
+          font-size: 1.6rem;
+        }
+
+        .platform {
+          width: 100px;
+        }
+
+        .back-btn {
+          padding: 10px 20px;
+          font-size: 0.9rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- 🔙 Back Button -->
+    <a href="index.htm" class="back-btn">⬅ </a>
+
+    <!-- About Us Section -->
+    <section class="about">
+      <div class="about-container">
+        <div class="about-photo">
+          <img src="../project-table/image/my-photo/me.JPG" alt="Your Photo" />
+          <p class="photo-caption">
+            ឈ្មោះៈ ឡេង ខេមរៈខ័ន្ធ <br />
+            ល.រ​ ១៧ <br />
+            ក្រុម SW10<br />
+            ឆ្នាំទី១ ឆមាសទី២
+          </p>
+        </div>
+
+        <div class="about-text">
+          <h2>អំពីខ្ញុំ</h2>
+          <p>
+            សូមស្វាគមន៍មកកាន់ទំព័រទាក់ទងរបស់ពួកយើង! <br>
+            ហាងយើងផ្តល់ជូននូវផលិតផលអេឡិចត្រូនិកគ្រប់ប្រភេទ ដូចជា ទូរស័ព្ទដៃ
+            កុំព្យូទ័រ Laptop Mouse Keyboard និងគ្រឿងបន្លាស់ផ្សេងៗទៀត។
+            ផលិតផលទាំងអស់មានគុណភាពខ្ពស់ តម្លៃសមរម្យ និងមានការធានាជូន។
+            យើងមានសេវាកម្មល្អ និងបុគ្គលិករួសរាយរាក់ទាក់
+            រៀបចំជាស្រេចដើម្បីបម្រើអតិថិជនទាំងអស់។!
+          </p>
+        </div>
+      </div>
+
+      <!-- Social Media Section -->
+      <div class="social">
+        <h3>អាចទំនាក់ទំនងមកខ្ញុំតាមរយៈព័ត៌មានខាងក្រោម</h3>
+        <div class="social-platforms">
+          <div class="platform">
+            <a
+              href="https://youtu.be/SiUwcDUYcuc?si=MKy4eTErxHim5NWi"
+              target="_blank"
+            >
+              <img
+                src="../project-table/image/platform/facebokk.jpg"
+                alt="Facebook"
+              />
+            </a>
+            <p>Facebook</p>
+          </div>
+
+          <div class="platform">
+            <a
+              href="https://youtu.be/SiUwcDUYcuc?si=MKy4eTErxHim5NWi"
+              target="_blank"
+            >
+              <img
+                src="../project-table/image/platform/instagram.jpg"
+                alt="Instagram"
+              />
+            </a>
+            <p>Instagram</p>
+          </div>
+
+          <div class="platform">
+            <a
+              href="https://youtu.be/SiUwcDUYcuc?si=MKy4eTErxHim5NWi"
+              target="_blank"
+            >
+              <img
+                src="../project-table/image/platform/telegram.jpg"
+                alt="Telegram"
+              />
+            </a>
+            <p>Telegram</p>
+          </div>
+
+          <div class="platform">
+            <a
+              href="https://youtu.be/SiUwcDUYcuc?si=MKy4eTErxHim5NWi"
+              target="_blank"
+            >
+              <img
+                src="../project-table/image/platform/tiktok.jpg"
+                alt="TikTok"
+              />
+            </a>
+            <p>TikTok</p>
+          </div>
+
+          <div class="platform">
+            <a
+              href="https://youtu.be/SiUwcDUYcuc?si=MKy4eTErxHim5NWi"
+              target="_blank"
+            >
+              <img
+                src="../project-table/image/platform/twiter.jpg"
+                alt="Twitter"
+              />
+            </a>
+            <p>Twitter</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <marquee
+        onmouseover="this.stop()"
+        onmouseout="this.start()"
+        behavior="scroll"
+        direction="left"
+        scrollamount="10"
+      >
+        បង្រៀនដោយ លោកគ្រូៈ​ រី​ វិសាន | សិស្សៈ ឡេង ខេមរៈខ័ន្ធ ល.រ​ ១៧ | ក្រុម
+        SW10 | មុខវិជ្ជា Web ឆ្នាំទី១ ឆមាសទី២
+      </marquee>
+    </footer>
+  </body>
+</html>

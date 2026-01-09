@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+  font-family: cursive;
+  background: #fff;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 2px solid #0000cc;
+}
+
+th,
+td {
+  border: 2px solid #0000cc;
+  padding: 10px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+th {
+  background-color: #8c8c8c;
+  color: #000;
+  font-weight: bold;
+}
+
+td img {
+  width: 90px;
+  height: auto;
+}
+img:hover{
+    cursor: pointer;
+    opacity: 0.5;
+    transition: 0.5s;
+}
+
+.not-found {
+  color: #000;
+}

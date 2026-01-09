@@ -1,0 +1,402 @@
+/* ---------- Base Page ---------- */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 120px; /* Header height */
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Poppins', sans-serif, cursive;
+  background: #ffffff61;
+  margin: 0;    
+  color: #333;
+}
+
+/* ====== HEADER ====== */
+header {
+  background-color: #0d1b2a;
+  color: #fff;
+  padding: 15px 40px;
+  background-image: linear-gradient(
+    to left,
+    rgb(0, 0, 0),
+    rgba(0, 4, 255, 0.614)
+  );
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-logo {
+  height: 150px;
+}
+
+.shop-name {
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: 'Khmer OS Muol Light';
+  background: linear-gradient(to right, rgb(255, 255, 255), rgb(245, 0, 0));
+  background-clip: text;
+  text-shadow: 0 1px rgba(246, 246, 246, 0.284);
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 1px;
+}
+
+/* ====== NAVIGATION ====== */
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  font-family: 'Alfa Slab One';
+  position: relative;
+}
+
+.header-nav > li {
+  list-style: none;
+  position: relative;
+}
+
+.header-nav > li > a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  padding: 8px 0;
+  display: inline-block;
+}
+
+.header-nav > li > a:hover {
+  color: #0015ff;
+}
+
+/* ====== DROPDOWN MENU ====== */
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 35px;
+  left: 0;
+  background-color: #1b263b;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  min-width: 150px;
+  z-index: 999;
+}
+/* Make dropdown items with submenus */
+.dropdown-item {
+  position: relative;
+}
+
+/* Submenu (second-level dropdown) */
+.dropdown-sub {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background-color: #24354b;
+  border-radius: 4px;
+  min-width: 150px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.dropdown-sub a {
+  display: block;
+  padding: 10px 15px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.dropdown-sub a:hover {
+  background-color: #3300ff;
+}
+
+/* Show submenu when hovered */
+.dropdown-item:hover .dropdown-sub {
+  display: block;
+}
+
+.dropdown a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 15px;
+  transition: background 0.3s;
+  font-size: 0.9rem;
+}
+
+.dropdown a:hover {
+  background-color: #00b4d8;
+}
+
+.header-nav > li:hover .dropdown {
+  display: block;
+}
+
+.tagline {
+  text-align: center;
+  background-image: linear-gradient(
+    to left,
+    rgba(0, 0, 0, 0.321),
+    rgba(0, 4, 255, 0)
+  );
+  padding: 8px 0;
+  font-size: 11pt;
+  letter-spacing: 0.5px;
+  font-family: Khmer OS Muol Light;
+}
+
+.banner {
+  position: relative;
+  overflow: hidden;
+  height: 420px;
+  background: #000;
+  margin-top: 0;
+}
+
+.banner-track {
+  display: flex;
+  width: calc(600%); /* doubled width for smooth looping */
+  animation: scroll-left 20s linear infinite;
+}
+
+.banner img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+}
+
+/* Continuous scrolling animation (left → right) */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+/* ====== Responsive ====== */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+  }
+
+  .header-nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .dropdown {
+    position: static;
+    box-shadow: none;
+    background: none;
+  }
+
+  .dropdown a {
+    padding: 5px 0 5px 15px;
+  }
+
+  .banner {
+    height: 250px;
+  }
+
+  .banner img {
+    height: 250px;
+  }
+}
+/* ---------- Category Section ---------- */
+.category {
+  max-width: 1200px;
+  margin: 60px auto;
+  background: #fff;
+  border-radius: 12px;
+  padding: 25px 35px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 0.8s ease both;
+}
+
+.category h2 {
+  border-left: 5px solid #0d47a1;
+  color: #000000;
+  padding-left: 10px;
+  margin-bottom: 25px;
+}
+
+/* ---------- Table Responsiveness ---------- */
+.table-container {
+  overflow-x: auto; /* horizontal scroll if needed */
+  margin: 0 -15px;
+  font-family: 'Oswald ';
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  max-width: 100%;
+}
+
+th,
+td {
+  padding: 12px 10px;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+  vertical-align: middle;
+  word-wrap: break-word;
+}
+
+th {
+  background: #1b437e;
+  color: #fff;
+  font-size: 1em;
+}
+
+tr:hover {
+  background-color: #e9f0fa;
+  transition: 0.3s ease;
+}
+
+td img {
+  width: 100%;
+  height: 120px; /* Same height for all product thumbnails */
+  object-fit: cover; /* Zoom/crop nicely */
+  border-radius: 6px;
+  transition: transform 0.3s ease;
+  display: block;
+  margin: 0 auto;
+}
+
+tr:hover td img {
+  transform: scale(1.05);
+}
+
+.product-name {
+  font-weight: 600;
+  color: #222;
+  font-size: 1.05em;
+}
+
+.specs {
+  color: #555;
+  font-size: 0.9em;
+}
+
+.price {
+  color: #08d72b;
+  font-weight: 700;
+  font-size: 1.1em;
+}
+
+.btn {
+  display: inline-block;
+  padding: 8px 14px;
+  background: #255194;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.9em;
+  transition: 0.3s ease;
+}
+
+.btn:hover {
+  background: #1976d2;
+  transform: scale(1.05);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- Contact Section ---------- */
+#contact {
+  background: #ffffff;
+  border-top: 4px solid #ff0000;
+  padding: 40px 20px;
+  text-align: center;
+  margin-top: 80px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+#contact h2 {
+  color: #0066ff;
+  margin-bottom: 20px;
+}
+
+#contact p {
+  font-size: 1em;
+  color: #444;
+}
+
+#contact a {
+  color: #0f00e0b9;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+#contact a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Footer ---------- */
+footer {
+  margin-top: 50px;
+  background-image: linear-gradient(to right, blue, rgb(42, 149, 255));
+  color: white;
+  padding: 10px;
+  font-size: 15pt;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 500;
+
+  text-align: center;
+}
+marquee {
+  font-family: Kh Koulen;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-photo img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .about-text h2 {
+    font-size: 1.6rem;
+  }
+
+  .platform {
+    width: 100px;
+  }
+}

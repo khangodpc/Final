@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ខេត្តព្រះវិហារ – ប្រវត្តិ និងវប្បធម៌ដ៏សម្បូរ</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Battambang&family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Battambang', 'Poppins', sans-serif;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: url('https://cambodiapropertyreport.com//storage/posts/July2021/422.jpg')
+          center/cover no-repeat fixed;
+        color: white;
+        line-height: 1.6;
+      }
+      body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        z-index: -1;
+      }
+      header {
+        position: sticky;
+        top: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(10px);
+        padding: 15px 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 10;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        transition: 0.3s;
+      }
+      header:hover {
+        background: rgba(0, 0, 0, 0.35);
+      }
+      .logo {
+        font-size: 1.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 35px;
+      }
+      nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+        position: relative;
+        transition: 0.3s;
+      }
+      nav a::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -4px;
+        left: 0;
+        background: #ffeb3b;
+        transition: 0.3s;
+      }
+      nav a:hover {
+        color: #ffeb3b;
+      }
+      nav a:hover::after {
+        width: 100%;
+      }
+      .hero {
+        height: 100vh;
+        background: url('https://napv.gov.kh/uploads/images/Gallery/Header_Slideshow/1.Koh%20ker.jpg') center/cover
+          no-repeat fixed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        position: relative;
+      }
+      .hero .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+      }
+      .hero-content {
+        position: relative;
+        color: white;
+        z-index: 2;
+      }
+      .hero-content h1,
+      .hero-content p {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 1s forwards;
+      }
+      .hero-content h1 {
+        animation-delay: 0.3s;
+        font-size: 4em;
+        font-family: Khmer OS Muol Light;
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+      }
+      .hero-content p {
+        animation-delay: 0.7s;
+        font-size: 1.5em;
+        font-family: Khmer OS Siemreap;
+      }
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      section {
+        padding: 60px 50px;
+        max-width: 1100px;
+        margin: auto;
+        background: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(6px);
+        border-radius: 12px;
+        margin-bottom: 40px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+      }
+      section h2 {
+        font-size: 2em;
+        margin-bottom: 20px;
+        color: #ffeb3b;
+        font-family: Khmer OS Muol Light;
+        text-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+      }
+      section p {
+        color: rgba(255, 255, 255, 0.95);
+        font-size: 1.15em;
+        font-family: Kh Koulen;
+        margin-bottom: 15px;
+      }
+      .gallery .images {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin-top: 25px;
+      }
+      .gallery img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        border-radius: 12px;
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+      }
+      .gallery img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+      }
+      .btn-container {
+        text-align: center;
+        margin-top: 30px;
+      }
+      .home-btn {
+        display: inline-block;
+        padding: 12px 30px;
+        background: linear-gradient(135deg, #00bbf0, #00204a);
+        color: white;
+        text-decoration: none;
+        border-radius: 30px;
+        font-weight: bold;
+        transition: 0.3s;
+        font-family: Kh Koulen;
+      }
+      .home-btn:hover {
+        background: linear-gradient(135deg, #00204a, #00bbf0);
+        transform: scale(1.05);
+        box-shadow: 0 0 15px #00bbf0;
+      }
+      footer {
+        text-align: center;
+        background: rgba(0, 0, 0, 0.3);
+        padding: 25px;
+        color: #fff;
+        font-size: 0.95em;
+        margin-top: 50px;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      @media (max-width: 768px) {
+        .hero-content h1 {
+          font-size: 3em;
+        }
+        .hero-content p {
+          font-size: 1.2em;
+        }
+        nav ul {
+          gap: 20px;
+        }
+        section {
+          padding: 40px 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">🇰🇭 Cambodia Map</div>
+      <nav>
+        <ul>
+          <li><a href="../index.htm">Home</a></li>
+          <li><a href="../Provinces.htm">Provinces</a></li>
+          <li><a href="../history.htm">History</a></li>
+          <li><a href="../contact.htm">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="overlay"></div>
+      <div class="hero-content">
+        <h1>ខេត្តព្រះវិហារ</h1>
+        <p>ខេត្តសែនអស្ចារ្យនៅភាគជើង មានប្រាសាទបុរាណ និងធម្មជាតិយ៉ាងសម្បូរ</p>
+        <a href="#about" class="home-btn">ស្វែងរកព័ត៌មាន</a>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <h2>ទិដ្ឋភាពទូទៅនៃខេត្តព្រះវិហារ</h2>
+      <p>
+        ខេត្តព្រះវិហារ (Preah Vihear) ជាខេត្តមួយនៅភាគជើងនៃប្រទេសកម្ពុជា
+        មានដែនដីប្រហែល <strong>13,788 គីឡូម៉ែត្រការេ</strong> making it
+        នៅក្នុងខេត្តមានទំហំធំបំផុត (រាជធានីភ្នំពេញមិនរាប់)។ ប្រជាជនប្រមាណ
+        <strong>249,973 នាក់</strong> (ឆ្នាំ ២០២៤)
+        ដែលធ្វើឲ្យនេះជាខេត្តមានប្រជាជនមិនច្រើនទេ
+        ប៉ុន្តែមានទំនាក់ទំនងជាមួយភាគខាងត្បូង ខាងលិច និងព្រំដែនជាតិ។
+      </p>
+      <p>
+        ខេត្តព្រះវិហារជាប់ខេត្តសៀមរាប និងឧត្ដរមានជ័យពីភាគលិច
+        ខេត្តកំពោងធំពីភាគខាងត្បូង និងខេត្តស្ទឹងត្រែងពីភាគខាងកើត។
+        ភាគខាងជើងជាព្រំដែនជាមួយប្រទេសថៃ និងឡាវ។ ទីភ្នាក់ងារដ្ឋានរដ្ឋបាលស្រុក
+        និងក្រុងប្រេសវិហារមានទីតាំងនៅក្រុងព្រះវិហារ (Preah Vihear Municipality)
+        ដែលជាកណ្តាលសេវាកម្មរដ្ឋ និងសេវាអប់រំ សុខាភិបាល។
+      </p>
+    </section>
+
+    <section class="history" id="history">
+      <h2>ប្រវត្តិនៃខេត្តព្រះវិហារ</h2>
+      <p>
+        ប្រាសាទព្រះវិហារ (Prasat Preah Vihear) គឺប្រាសាទមួយស្ថិតលើភ្នំពយទាឌី
+        (Poy Tadi) ដែលមានកម្ពស់ប្រហែល ៥២៥ ម៉ែត្រពីមាត់សមុទ្រ
+        នៅក្នុងដែនដីភូមិសាស្ត្រតំបន់ដង្រែក (Dangrek Mountains)។
+        ដំណើរបង្កើតប្រាសាទចាប់ផ្តើមនៅសម័យអង្គរ ជាមួយព្រះមហាក្សត្រី យសោវរ្ម័នទី១
+        (Yasovarman I) នៅខណៈសតវត្សទី៩។ បន្ទាប់មកមានការកសាងបន្ថែម
+        និងកំណត់សិល្បៈក្រោយក្រោមអធិបតីភាព​ប្រសាសន៍នៅសម័យសុរិយវរ្ម័នទី១ និងទី២។
+      </p>
+      <p>
+        ប្រាសាទនេះមានលក្ខណៈពិសេសមួយគឺថា
+        វាត្រូវបានថ្នាក់បង្កើតតាមអ័ក្ខរិយាទីតាំងនៃភ្នំ និងចំណុចមើលចំណុចទេសភាព
+        ធ្វើឲ្យប្រាសាទព្រះវិហារមានការរចនាផ្លូវថ្នល់ និងជាន់នានា
+        ដែលនៅលើបណ្តោយអ័ក្សជុំវិញពីខាងជើងទៅខាងត្បូង ប្រហែល ៨០០ ម៉ែត្រ។
+      </p>
+      <p>
+        ប្រាសាទនេះ ក៏គឺជាចំណុចប្រទៈនយោបាយ និងព្រំដែនកសាងក្រោយពីអតីតកាល
+        មានការតវ៉ារវាងប្រទេសកម្ពុជា និងថៃ ស្តីពីខ្សែដែន និងសិទ្ធិគ្រប់គ្រង។
+        នៅឆ្នាំ ១៩៦២ តុលាការអន្ដរជាតិ (International Court of Justice)
+        បានកក់សិទ្ធិកាន់ប្រាសាទព្រះវិហារឲ្យកម្ពុជាច្បាស់លាស់។
+      </p>
+      <p>
+        ខេត្តព្រះវិហារបានត្រូវបានកំណត់ជាខេត្តឯករាជ្យនៅថ្ងៃទី **22 ខែកក្កដា**
+        ឆ្នាំ 1964 ក្រោយពីការរៀបចំរដ្ឋបាល
+        និងការកំណត់ព្រំដែនក្នុងសម័យបន្ទាប់ពីឯករាជ្យភាព។
+      </p>
+    </section>
+
+    <section class="culture" id="culture">
+      <h2>វប្បធម៌នៃខេត្តព្រះវិហារ</h2>
+      <p>
+        ប្រជាជនខេត្តព្រះវិហារមានជាតិ និងភេទផ្សេងៗ រួមមានជនជាតិខ្មែរ ជនជាតិខ្យូយ
+        (Kuy) និងសាសនាពហុចម្រូង ចំនែកបុរាណមានប្រជាជនដែលមានប្រពៃណីផ្ទុយៗ
+        និងភាសាពិសេសៗ។ ព្រឹត្តិការណ៍បុណ្យប្រទៃណ៍សាសនា និងពិធីបុណ្យជារៀងរាល់ឆ្នាំ
+        ដូចជា បុណ្យចូលឆ្នាំខ្មែរ បុណ្យភ្ជុំបិណ្ឌ បុណ្យអុំទូក
+        ត្រូវបានប្រារព្ធនៅវត្ត និងភូមិជិតប្រាសាទ និងតំបន់ជិតព្រំដែន។
+      </p>
+      <p>
+        សិល្បៈបុរាណ និងសិប្បកម្មធម្មជាតិ
+        នៅក្នុងខេត្តនេះរួមមានការកែច្នៃឥដ្ឋប្រាសាទ ការរចនាបន្ទះព្រលឹង
+        (Bas-relief) លើសិលាស (stone carving) និងការតុបតែងប្រាសាទ
+        ក៏ដូចជាការថតត្រាបញ្ញើនិងរូបភាពក្នុងស្ថាបត្យកម្មបុរាណ។
+        ជនជាតិខ្យូយមានបទពិសោធន៍ក្នុងការប្រមូលឈើ ប្រេង
+        ឬផ្សារភូមិតូចៗដើម្បីគ្រប់គ្រាន់ជីវភាពប្រចាំថ្ងៃ។
+      </p>
+      <p>
+        ការរស់នៅប្រចាំថ្ងៃប្រជាជនភាគច្រើនធ្វើកសិកម្ម ដាំស្រូវ បន្លែ
+        នឹងដើរតំបន់នេសាទ និងប្រើប្រាស់ធនធានធម្មជាតិជាច្រើន។
+        ទេសចរណ៍ក៏បានលេចឡើងជាពិសេស ប្រាសាទព្រះវិហារ ជាពិធីប្រលោមលក្ខណៈសាសនា
+        និងទេសចរណ៍អធិការ (pilgrimage)។ មានទីកន្លែងទេសចរណ៍ធម្មជាតិដូចជាព្រៃ បឹង
+        និងទឹកធ្លាក់ ដែលអ្នកទេសចរអាចតាមដំណើរផ្លូវជើង ឬតាមស្ទូមទន្លេ (boat) បាន។
+      </p>
+    </section>
+
+    <section class="gallery" id="gallery">
+      <h2>ទីកន្លែងល្បីៗនៅខេត្តព្រះវិហារ</h2>
+      <div class="images">
+        <img
+          src="https://oss6.tnaot.com/tnaot/image/2022/08/14/c31675e988254ebda4a6c4ad77961726.jpg"
+          alt="ប្រាសាទព្រះវិហារ"
+        />
+        <img
+          src="https://cambodiapropertyreport.com//storage/posts/April2022/bdb63b8d38810bdf2190463e6f611c51ff26a3b3.jpg"
+          alt="ប្រាសាទកោះកេរ"
+        />
+        <img
+          src="https://www.khmertimeskh.com/wp-content/uploads/2023/08/Lead-13.jpg"
+          alt="ធម្មជាតិព្រះវិហារ"
+        />
+        <img
+          src="https://napv.gov.kh/uploads/images/Gallery/Header_Slideshow/5.Gopura%20IV.jpg"
+          alt="ព្រៃច្បារព្រះវិហារ"
+        />
+        <img
+          src="https://cambodiapropertyreport.com//storage/posts/April2022/277738720_345592867601478_8460452420045703204_n.jpeg"
+          alt="ទឹកធ្លាក់បេងកោង"
+        />
+        <img
+          src="https://www.cnc.com.kh/news/620b6fe57a094.jpeg"
+          alt="វប្បធម៌មូលដ្ឋាន"
+        />
+      </div>
+    </section>
+
+    <div class="btn-container">
+      <a href="../index.htm" class="home-btn">🏠 ត្រឡប់ទៅទំព័រដើម</a>
+    </div>
+
+    <footer>
+      <p>© ២០២៥ គម្រោងផែនទីខេត្តកម្ពុជា — ទំព័ររបស់ខេត្តព្រះវិហារ</p>
+    </footer>
+  </body>
+</html>

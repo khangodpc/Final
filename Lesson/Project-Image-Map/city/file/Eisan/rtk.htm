@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ខេត្តរតនគិរី – ប្រវត្តិ និងវប្បធម៌ដ៏សម្បូរ</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Battambang&family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Battambang', 'Poppins', sans-serif;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: url('https://visitlocaltravel.com/blog/wp-content/uploads/2024/01/Boeng-Yeak-Laom-5.png')
+          center/cover no-repeat fixed;
+        color: white;
+        line-height: 1.6;
+      }
+      body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        z-index: -1;
+      }
+      header {
+        position: sticky;
+        top: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(10px);
+        padding: 15px 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 10;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        transition: 0.3s;
+      }
+      header:hover {
+        background: rgba(0, 0, 0, 0.35);
+      }
+      .logo {
+        font-size: 1.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 35px;
+      }
+      nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+        position: relative;
+        transition: 0.3s;
+      }
+      nav a::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -4px;
+        left: 0;
+        background: #ffeb3b;
+        transition: 0.3s;
+      }
+      nav a:hover {
+        color: #ffeb3b;
+      }
+      nav a:hover::after {
+        width: 100%;
+      }
+      .hero {
+        height: 100vh;
+        background: url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0e/6c/89/b2/yeak-laom-volcanic-lake.jpg?w=1200&h=1200&s=1')
+          center/cover no-repeat fixed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        position: relative;
+      }
+      .hero .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+      }
+      .hero-content {
+        position: relative;
+        color: white;
+        z-index: 2;
+      }
+      .hero-content h1,
+      .hero-content p {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 1s forwards;
+      }
+      .hero-content h1 {
+        animation-delay: 0.3s;
+        font-size: 4em;
+        font-family: Khmer OS Muol Light;
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+      }
+      .hero-content p {
+        animation-delay: 0.7s;
+        font-size: 1.5em;
+        font-family: Khmer OS Siemreap;
+      }
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      section {
+        padding: 60px 50px;
+        max-width: 1100px;
+        margin: auto;
+        background: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(6px);
+        border-radius: 12px;
+        margin-bottom: 40px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+      }
+      section h2 {
+        font-size: 2em;
+        margin-bottom: 20px;
+        color: #ffeb3b;
+        font-family: Khmer OS Muol Light;
+        text-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+      }
+      section p {
+        color: rgba(255, 255, 255, 0.95);
+        font-size: 1.15em;
+        font-family: Kh Koulen;
+        margin-bottom: 15px;
+      }
+      .gallery .images {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin-top: 25px;
+      }
+      .gallery img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        border-radius: 12px;
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+      }
+      .gallery img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+      }
+      .btn-container {
+        text-align: center;
+        margin-top: 30px;
+      }
+      .home-btn {
+        display: inline-block;
+        padding: 12px 30px;
+        background: linear-gradient(135deg, #00bbf0, #00204a);
+        color: white;
+        text-decoration: none;
+        border-radius: 30px;
+        font-weight: bold;
+        transition: 0.3s;
+        font-family: Kh Koulen;
+      }
+      .home-btn:hover {
+        background: linear-gradient(135deg, #00204a, #00bbf0);
+        transform: scale(1.05);
+        box-shadow: 0 0 15px #00bbf0;
+      }
+      footer {
+        text-align: center;
+        background: rgba(0, 0, 0, 0.3);
+        padding: 25px;
+        color: #fff;
+        font-size: 0.95em;
+        margin-top: 50px;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      @media (max-width: 768px) {
+        .hero-content h1 {
+          font-size: 3em;
+        }
+        .hero-content p {
+          font-size: 1.2em;
+        }
+        nav ul {
+          gap: 20px;
+        }
+        section {
+          padding: 40px 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">🇰🇭 Cambodia Map</div>
+      <nav>
+        <ul>
+          <li><a href="../index.htm">Home</a></li>
+          <li><a href="../Provinces.htm">Provinces</a></li>
+          <li><a href="../history.htm">History</a></li>
+          <li><a href="../contact.htm">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="overlay"></div>
+      <div class="hero-content">
+        <h1>ខេត្តរតនគិរី</h1>
+        <p>
+          ខេត្តភ្នំម្លប់ ព្រៃស្រស់
+          និងមនុស្សជនជាតិដើមឆ្ងាញ់សម្រាប់មើលឆ្ងាញ់ស្គាល់
+        </p>
+        <a href="#about" class="home-btn">ស្វែងរកព័ត៌មាន</a>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <h2>ទិដ្ឋភាពទូទៅនៃខេត្តរតនគិរី</h2>
+      <p>
+        ខេត្តរតនគិរី (Ratanakiri) ស្ថិតនៅភាគខាងឧត្ដរខាងកើតនៃប្រទេសកម្ពុជា
+        ជិតព្រំដែនជាមួយប្រទេសឡាវ និងវៀតណាម។
+      </p>
+      <p>
+        ទំហំទឹកដីប្រហែល
+        <strong>10,782 គីឡូម៉ែត្រការ៉េ</strong> ហើយជាតំបន់ដែលមានប្រជាជនតិច
+        ការរស់នៅគឺសាមញ្ញ និងភាគច្រើននៅភូមិ និងព្រៃឈើ។
+      </p>
+      <p>
+        ទេសភាពនៅរតនគិរីមានដំណើរការជាមួយភ្នំលើ អង្កាសខ្យល់ត្រជាក់ ព្រៃឈើធម្មជាតិ
+        ទឹកធ្លាក់ ទន្លេដ៏អស្ចារ្យ និងបឹងធម្មជាតិតូចៗ។
+        ខេត្តនេះសម្បូរទៅដោយធនធានធម្មជាតិ និងជីវចម្រុះ។
+      </p>
+      <p>
+        ក្រុងមួយមានសារៈសំខាន់របស់ខេត្តនេះគឺ **បណ្ណលុង** (Banlung)
+        ដែលជាមជ្ឍមណ្ឌលអភិវឌ្ឍន៍ ទេសចរណ៍ និងប្រាក់ចំណេញសេដ្ឋកិច្ច។
+        ក្រុងនេះមានទីផ្សារ សណ្ឋាគារ
+        និងការចាប់ផ្តើមដំណើរកម្សាន្តដើម្បីទៅទីផ្សារភូមិតូចៗ
+        និងធ្វើដំណើរក្នុងព្រៃ។
+      </p>
+    </section>
+
+    <section class="history" id="history">
+      <h2>ប្រវត្តិនៃខេត្តរតនគិរី</h2>
+      <p>
+        តំបន់រតនគិរីត្រូវបានរស់នៅសហរយៈពេលយូរ មានសារមន្ទីរស្រែកស្នូលពីសម័យទឹកនោម
+        និងសម័យបុរាណ។ ជនជាតិដើមដែលហៅថា **Khmer Loeu**
+        រួមមានជនជាតិតំបន់លើភ្នំដូចជា Tampuan, Kreung, Jarai, Phnong
+        និងជនជាតិផ្សេងទៀតបានមានជីវភាពយ៉ាងឆ្ងាញ់ជាមួយធម្មជាតិ។
+      </p>
+      <p>
+        នៅសម័យព្រលឹងនៃអាណានិគមបារាំង (French colonial period)
+        រតនគិរីត្រូវបានដកចេញពីខេត្តស្ទឹងត្រែង និងរដ្ឋបាលបានដាក់ការតែងតាំងផ្លូវ
+        និងដូរ ដំណាំកៅស៊ូ និងឲ្យមានតង់ស៊ីដូនដើម្បីប្រើប្រាស់ធនធានធម្មជាតិ។
+      </p>
+      <p>
+        បន្ទាប់ពីឯករាជ្យភាព កម្ពុជា ក្រុងនេះបានក្លាយជាខេត្តនៅឆ្នាំ **1959**
+        នៃការផ្លាស់ប្តូររដ្ឋបាលពីខេត្តស្ទឹងត្រែង។
+      </p>
+      <p>
+        ជា​ពេលថ្មីៗនេះ
+        រតនគិរីត្រូវបានពាក់ព័ន្ធនឹងសកម្មភាពបញ្ចូលគ្នារវាងប្រជាជនជនជាតិដើម
+        និងសេដ្ឋកិច្ចទំនិញ ដូចជា ការដាំដំណាំពាណិជ្ជកម្ម ការកសិកម្មនៅតំបន់ដ៏ខ្ពស់
+        និងទេសចរណ៍ធម្មជាតិ។ វិញនឹងមានការប្រឈមមុខជាមួយបញ្ហាបំណុលដី
+        និងការបាត់បង់ធនធានធម្មជាតិ។
+      </p>
+    </section>
+
+    <section class="culture" id="culture">
+      <h2>វប្បធម៌នៃខេត្តរតនគិរី</h2>
+      <p>
+        ប្រជាជនជនជាតិដើមនៅរតនគិរី មានភាសា និងប្រពៃណីរបស់ខ្លួន
+        ដែលនៅតែរស់ស្រោកស្រឡាញ់។ ជាតិសំខាន់ៗរួមមាន Tampuan, Kreung, Jarai,
+        Phnong, Brao និងក្រុមជនជាតិដទៃទៀត។
+        ពួកគេរក្សារបៀបរស់នៅប្រពៃណីក្នុងស្រុកជាទីតាំងលើភ្នំ និងព្រៃឈើ។
+      </p>
+      <p>
+        វប្បធម៌ពិធីបុណ្យ និងពិធីបរិច្ចាគសំពាធទៅដល់ទឹកប្រាក់ធម្មជាតិ និងសត្វព្រៃ
+        គឺជាផ្នែកមួយសំខាន់។ ពិធីបុណ្យបុរាណដែលត្រូវបានប្រារព្ធនៅពេលចូលឆ្នាំ ខ្មែរ
+        បុណ្យភ្ជុំបិណ្ឌ បុណ្យអុំទូក, រួមទាំងពិធីពេញទឹកពេញឆ្នេរ បុណ្យភ្លេង
+        និងការរួមចំណែកនៅពិធីនៅភូមិជនជាតិដើម។
+      </p>
+      <p>
+        មុខរបរសេដ្ឋកិច្ចប្រពៃណីរួមចំណែកដល់ការដាំដំណាំខ្ពស់ (slash-and-burn
+        agriculture), ការប្រមូលផលព្រៃដូចជា ឈើ ផ្លែឈើ ម្សៅប្រើថ្នាំធម្មជាតិ
+        និងសត្វព្រៃ។ ការជាភាគច្រើនប្រើប្រាស់វិធីធម្មជាតិក្នុងការរស់នៅ
+        និងអ្នកជនជាតិដើមគ្រប់គ្នាមានវិធីសាស្ត្ររកស៊ីអាហារដែលផ្អែកលើធម្មជាតិជាចម្បង។
+      </p>
+      <p>
+        សិល្បៈវប្បធម៌ដូចជាការកាប់ឈើ ការបញ្ចាំដែក ពណ៌ដៃ weaving
+        (ការទាក់ទាញសិប្បកម្មសរសេរសម្លៀកបំពាក់ និងប្រមូលពណ៌ធម្មជាតិ)
+        ក៏មានសារៈសំខាន់។ ពិធីបទភ្លេងឆ្កៅឆ្កាល
+        និងកាន់តែងសំឡេងធម្មជាតិនិងគ្រឿងរិនម៉ងដ្ឋានជាផ្នែកមួយនៃការប្រារព្ធពិធីក្នុងស្រុកក្នុងពេលព្រឹត្តិការណ៍សំខាន់ៗ។
+      </p>
+      <p>
+        ទេសចរណ៍ធម្មជាតិក៏ពោរពេញដោយទឹកធ្លាក់ ធនធានអរូបីដូចជា បឹង Yeak Laom ជាបឹង
+        Vulkanic crater មួយដែលទឹកកូស្បាវ មានពណ៌ថ្លា
+        និងអារម្មណ៍ស្ងប់ស្ងាត់មើលឃើញដើរប្រមូលព្រៃជាដើម។
+        អ្នកទេសចរអាចទៅទស្សនាព្រៃសត្វរុក្ខជាតិ ធ្វើដំណើរថ្នល់ភ្នំ
+        និងទស្សនាវប្បធម៌ភូមិ។
+      </p>
+    </section>
+
+    <section class="gallery" id="gallery">
+      <h2>ទីកន្លែងល្បីៗនៅខេត្តរតនគិរី</h2>
+      <div class="images">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Yak_Loum.jpg"
+          alt="បឹង Yeak Laom"
+        />
+        <img
+          src="https://static.information.gov.kh/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBMWVlQVE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--2da51774574399c53a06a703866737a01de5b9e1/5A157368-34D5-4958-B4ED-1DF11C4.jpeg"
+          alt="ទឹកធ្លាក់នៅរតនគិរី"
+        />
+        <img
+          src="https://i.ytimg.com/vi/2b9cohp8MPA/maxresdefault.jpg"
+          alt="ភូមិតំបន់ជនជាតិដើម"
+        />
+      </div>
+    </section>
+
+    <div class="btn-container">
+      <a href="../index.htm" class="home-btn">🏠 ត្រឡប់ទៅទំព័រដើម</a>
+    </div>
+
+    <footer>
+      <p>© ២០២៥ គម្រោងផែនទីខេត្តកម្ពុជា — ទំព័ររបស់ខេត្តរតនគិរី</p>
+    </footer>
+  </body>
+</html>

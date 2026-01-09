@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, #ffe6f2, #ffd6e8);
+  font-family: 'Poppins', sans-serif;
+  color: #b2005f;
+  overflow-x: hidden;
+  text-align: center;
+}
+
+/* Floating hearts background */
+#hearts-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* Main container */
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 80px auto;
+  background: rgba(255, 255, 255, 0.6);
+  padding: 60px 20px;
+  border-radius: 25px;
+  box-shadow: 0 0 40px rgba(255, 182, 193, 0.6);
+  backdrop-filter: blur(10px);
+  animation: fadeIn 2s ease forwards;
+}
+
+h1 {
+  font-family: 'Pacifico', cursive;
+  font-size: 2.8em;
+  color: #d63384;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 1.8em;
+  color: #b2005f;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 1.1em;
+  margin-bottom: 30px;
+}
+
+/* Gallery */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(255, 105, 180, 0.5);
+  transition: transform 0.6s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+.message {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 1.1em;
+  line-height: 1.7;
+  color: #a4005c;
+}
+
+/* Footer */
+footer {
+  margin-top: 50px;
+  padding: 30px;
+  background: linear-gradient(to right, #ffd6e8, #ffe6f2);
+  box-shadow: 0 -4px 10px rgba(255, 182, 193, 0.4);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.quote {
+  font-style: italic;
+  font-size: 1.2em;
+  color: #b2005f;
+  margin-bottom: 5px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.heart {
+  position: absolute;
+  bottom: -10px;
+  color: rgba(255, 105, 180, 0.7);
+  font-size: 20px;
+  animation: floatUp linear forwards;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+}

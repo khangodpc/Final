@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Martin & Lesly — 6 Year Anniversary</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: linear-gradient(135deg,#FFEFE6 0%, #FFF9F2 40%, #EAF6FF 100%);
+      --accent: #ff6b81;
+      --accent-dark: #ff3b5c;
+      --muted:#6b6b6b;
+      --card-bg: rgba(255,255,255,0.85);
+      --glass: rgba(255,255,255,0.6);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:'Poppins',system-ui,Arial,sans-serif;background:var(--bg);color:#222}
+
+    .wrap{
+      min-height:100vh;display:flex;flex-direction:column;
+      align-items:center;justify-content:flex-start;padding:36px 18px 80px;
+      background-image: radial-gradient(rgba(255,255,255,0.3) 1px, transparent 1px);
+      background-size:20px 20px;
+    }
+
+    header{width:100%;max-width:1100px;margin:18px auto 28px;display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:62px;height:62px;border-radius:18px;background:linear-gradient(135deg,var(--accent),var(--accent-dark));display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:20px;box-shadow:0 6px 20px rgba(0,0,0,0.12)}
+    .brand h1{font-family:'Great Vibes',cursive;margin:0;font-size:30px;color:#333}
+    .subtitle{font-size:12px;color:var(--muted)}
+
+    main{width:100%;max-width:1100px;background:transparent}
+
+    .hero{
+      margin:0 auto 30px;border-radius:18px;padding:36px;display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;background:linear-gradient(90deg, rgba(255,255,255,0.8), rgba(255,255,255,0.6));backdrop-filter: blur(6px);box-shadow:0 10px 40px rgba(0,0,0,0.06)
+    }
+    .hero-left h2{font-family:'Great Vibes';font-size:48px;margin:0 0 8px;color:var(--accent-dark)}
+    .hero-left p{margin:0 0 18px;color:#444}
+    .date-pill{display:inline-block;padding:8px 12px;background:var(--card-bg);border-radius:999px;font-weight:600;color:var(--accent-dark);box-shadow:0 4px 12px rgba(0,0,0,0.06)}
+
+    .card{background:var(--card-bg);padding:18px;border-radius:14px;box-shadow:0 6px 18px rgba(0,0,0,0.05)}
+
+    .photo-stack{position:relative;height:320px;border-radius:12px;overflow:hidden}
+    .photo-stack img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.2,.9,.3,1);filter:contrast(1.02)}
+    .photo-stack .img-1{transform:translate(-14px,-12px) rotate(-2deg);z-index:3}
+    .photo-stack .img-2{transform:translate(8px,8px) rotate(2deg);z-index:2}
+    .photo-stack .img-3{transform:translate(0px,0px) scale(1.02);z-index:1}
+
+    .countdown{display:flex;gap:10px;justify-content:center;margin-top:14px}
+    .countdown .unit{background:var(--glass);padding:10px 14px;border-radius:10px;text-align:center;min-width:70px}
+    .unit .num{font-weight:700;font-size:18px}
+    .unit .lab{font-size:11px;color:var(--muted)}
+
+    .section{margin:26px 0}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .story{line-height:1.6;color:#333}
+
+    .gallery{display:flex;flex-wrap:wrap;gap:10px}
+    .gallery img{width:calc(33.333% - 6.66px);height:120px;object-fit:cover;border-radius:8px;cursor:pointer;transition:transform .24s}
+    .gallery img:hover{transform:scale(1.03)}
+
+    .rsvp-form{display:flex;flex-direction:column;gap:12px}
+    .rsvp-form input,.rsvp-form textarea{padding:12px;border-radius:10px;border:1px solid rgba(0,0,0,0.08);font-size:14px}
+    .btn{display:inline-block;padding:10px 18px;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--accent-dark));color:white;text-decoration:none;font-weight:700;border:none;cursor:pointer}
+
+    footer{margin-top:40px;text-align:center;color:var(--muted);font-size:13px}
+
+    /* modal */
+    .modal{position:fixed;inset:0;display:none;place-items:center;background:rgba(0,0,0,0.6);z-index:99}
+    .modal .panel{width:90%;max-width:760px;background:white;border-radius:12px;padding:18px}
+
+    /* small screens */
+    @media (max-width:880px){
+      .hero{grid-template-columns:1fr;}
+      .photo-stack{height:240px}
+      .gallery img{width:calc(50% - 5px)}
+      .grid-3{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">M&L</div>
+        <div>
+          <h1>Martin & Lesly</h1>
+          <div class="subtitle">Six years of love • 2019 — 2025</div>
+        </div>
+      </div>
+      <div class="date-pill">October 26, 2025</div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-left">
+          <h2>Happy 6th Anniversary</h2>
+          <p>Six years of shared laughs, late-night talks, and growing together. Here's a small page to celebrate the journey — photos, memories, and a little surprise.</p>
+          <div class="card">
+            <strong>Highlights</strong>
+            <ul style="margin:10px 0 0 18px;color:#444">
+              <li>First date: July 14, 2019</li>
+              <li>Moved in together: Jan 5, 2022</li>
+              <li>Favourite ritual: Sunday coffee & walking together</li>
+            </ul>
+            <div class="countdown" style="margin-top:14px">
+              <div class="unit"><div class="num" id="cd-days">—</div><div class="lab">Days</div></div>
+              <div class="unit"><div class="num" id="cd-hours">—</div><div class="lab">Hours</div></div>
+              <div class="unit"><div class="num" id="cd-mins">—</div><div class="lab">Minutes</div></div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="card photo-stack" id="photoStack">
+          <img class="img-3" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=abc" alt="couple photo">
+          <img class="img-2" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=def" alt="couple photo 2">
+          <img class="img-1" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=ghi" alt="couple photo 3">
+        </aside>
+      </section>
+
+      <section class="section grid-3">
+        <div class="card story">
+          <h3 style="margin-top:0">Our Story</h3>
+          <p>We met by chance and quickly learned that the little things — shared playlists, rainy day movie marathons, and warm breakfasts — made life brighter. Over six years we built a life filled with trust, humour, and small adventures.</p>
+        </div>
+        <div class="card story">
+          <h3 style="margin-top:0">Why we celebrate</h3>
+          <p>Because the everyday moments add up. We celebrate the patience, the growth, and the future we still get to write together.</p>
+        </div>
+        <div class="card story">
+          <h3 style="margin-top:0">A wish</h3>
+          <p>May we keep discovering new things about each other and stay kind in the small moments. Cheers to many more years.</p>
+        </div>
+      </section>
+
+      <section class="section card">
+        <h3 style="margin-top:0">Photo Gallery</h3>
+        <div class="gallery" id="gallery">
+          <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=1" alt="g1">
+          <img src="https://images.unsplash.com/photo-1511203466129-824e631920d4?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=2" alt="g2">
+          <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=3" alt="g3">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=4" alt="g4">
+          <img src="https://images.unsplash.com/photo-1507627087432-5b6600b90f4e?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=5" alt="g5">
+          <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=6" alt="g6">
+        </div>
+      </section>
+
+      <section class="section card">
+        <h3 style="margin-top:0">Leave a message</h3>
+        <form class="rsvp-form" id="rsvp">
+          <input type="text" id="name" placeholder="Your name" required>
+          <input type="email" id="email" placeholder="Your email (optional)">
+          <textarea id="message" rows="4" placeholder="Your message for us..."></textarea>
+          <div style="display:flex;gap:10px;align-items:center">
+            <button type="submit" class="btn">Send message</button>
+            <div id="thanks" style="color:var(--muted);font-size:14px;display:none">Thanks — your note is saved locally.</div>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <footer>Made with ❤️ — open this file in a browser. Change names/photos in the top of the file to personalize.</footer>
+
+    <!-- image modal -->
+    <div class="modal" id="modal">
+      <div class="panel">
+        <button id="closeModal" style="float:right;border:none;background:transparent;font-size:18px;cursor:pointer">✕</button>
+        <img id="modalImg" src="" alt="" style="width:100%;height:420px;object-fit:cover;border-radius:8px">
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // --- countdown to today (anniversary) ---
+    (function(){
+      const target = new Date('2025-10-26T00:00:00');
+      function update(){
+        const now=new Date();
+        let diff = Math.max(0, Math.floor((target-now)/1000));
+        const days=Math.floor(diff/86400); diff-=days*86400;
+        const hours=Math.floor(diff/3600); diff-=hours*3600;
+        const mins=Math.floor(diff/60);
+        document.getElementById('cd-days').textContent = days;
+        document.getElementById('cd-hours').textContent = hours;
+        document.getElementById('cd-mins').textContent = mins;
+      }
+      update(); setInterval(update, 1000*60);
+    })();
+
+    // --- simple gallery modal ---
+    document.querySelectorAll('#gallery img, #photoStack img').forEach(img => {
+      img.addEventListener('click', e => {
+        const modal = document.getElementById('modal');
+        document.getElementById('modalImg').src = img.src;
+        modal.style.display='grid';
+      })
+    })
+    document.getElementById('closeModal').addEventListener('click',()=>document.getElementById('modal').style.display='none')
+    document.getElementById('modal').addEventListener('click',(e)=>{ if(e.target.id==='modal') e.currentTarget.style.display='none'})
+
+    // --- simple local-save for messages ---
+    const form = document.getElementById('rsvp');
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      if(!name) return alert('Please enter your name');
+      const saved = JSON.parse(localStorage.getItem('anniv_messages'||'[]')) || [];
+      saved.push({name,email,message,ts:Date.now()});
+      localStorage.setItem('anniv_messages', JSON.stringify(saved));
+      document.getElementById('thanks').style.display='block';
+      form.reset();
+    })
+
+    // --- photo-stack hover effect ---
+    const stack = document.getElementById('photoStack');
+    stack.addEventListener('mousemove', (e)=>{
+      const w = stack.clientWidth, h = stack.clientHeight;
+      const rx = (e.offsetX - w/2) / w * 12;
+      const ry = (e.offsetY - h/2) / h * 6;
+      stack.querySelectorAll('img').forEach((im,i)=>{
+        im.style.transform = `translate(${(i-1)*8 - rx}px, ${(i-1)*6 - ry}px) rotate(${(i-1)*2 - rx/6}deg)`;
+      })
+    })
+    stack.addEventListener('mouseleave', ()=>{
+      stack.querySelectorAll('img').forEach((im,i)=>{
+        im.style.transform = ['translate(-14px,-12px) rotate(-2deg)','translate(8px,8px) rotate(2deg)','translate(0px,0px) scale(1.02)'][i];
+      })
+    })
+
+    // --- gentle confetti on load ---
+    (function(){
+      const canvas = document.createElement('canvas');
+      canvas.style.position='fixed'; canvas.style.inset=0; canvas.style.pointerEvents='none'; canvas.style.zIndex=50;
+      document.body.appendChild(canvas);
+      const ctx = canvas.getContext('2d');
+      function resize(){canvas.width=innerWidth;canvas.height=innerHeight}
+      resize(); addEventListener('resize',resize);
+      const pieces = [];
+      for(let i=0;i<60;i++) pieces.push({x:Math.random()*innerWidth,y:Math.random()*-innerHeight,vy:2+Math.random()*3, vx:(Math.random()-0.5)*2, s:6+Math.random()*8, c: ['#FF6B81','#FFD36B','#8CE6FF','#C4A7FF'][Math.floor(Math.random()*4)]});
+      function draw(){ctx.clearRect(0,0,canvas.width,canvas.height); pieces.forEach(p=>{p.x+=p.vx; p.y+=p.vy; p.vy+=0.02; ctx.fillStyle=p.c; ctx.fillRect(p.x,p.y,p.s,p.s*0.6); if(p.y>canvas.height+50){p.x=Math.random()*canvas.width; p.y=-40; p.vy=2+Math.random()*2}}); requestAnimationFrame(draw)}
+      draw();
+      // fade out after a while
+      setTimeout(()=>{let a=1; const fade=setInterval(()=>{a-=0.02; canvas.style.opacity=a; if(a<=0){clearInterval(fade); canvas.remove()}},80)},7000)
+    })();
+  </script>
+</body>
+</html>

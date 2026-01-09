@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kratie</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Battambang', 'Poppins', sans-serif;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: url('https://demo.cambodia.gov.kh/wp-content/uploads/2021/04/%E1%9E%80%E1%9F%92%E1%9E%9A%E1%9E%85%E1%9F%81%E1%9F%87-%E1%9E%9A%E1%9E%98%E1%9E%8E%E1%9E%B8%E1%9E%99%E1%9E%8A%E1%9F%92%E1%9E%8B%E1%9E%B6%E1%9E%93%E1%9E%91%E1%9E%B9%E1%9E%80%E1%9E%87%E1%9E%BD%E1%9E%9A%E1%9E%91%E1%9E%93%E1%9F%92%E1%9E%9B%E1%9F%81%E1%9E%98%E1%9F%81%E1%9E%82%E1%9E%84%E1%9F%92%E1%9E%82-%E1%9E%80%E1%9E%B6%E1%9F%86%E1%9E%96%E1%9E%B81.jpg')
+          center/cover no-repeat fixed;
+        color: white;
+        line-height: 1.6;
+      }
+
+      body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        z-index: -1;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(10px);
+        padding: 15px 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 10;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        transition: 0.3s;
+      }
+
+      header:hover {
+        background: rgba(0, 0, 0, 0.35);
+      }
+
+      .logo {
+        font-size: 1.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 35px;
+      }
+
+      nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+        position: relative;
+        transition: 0.3s;
+      }
+
+      nav a::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -4px;
+        left: 0;
+        background: #ffeb3b;
+        transition: 0.3s;
+      }
+
+      nav a:hover {
+        color: #ffeb3b;
+      }
+
+      nav a:hover::after {
+        width: 100%;
+      }
+
+      .hero {
+        height: 100vh;
+        background: url('https://demo.cambodia.gov.kh/wp-content/uploads/2021/04/%E1%9E%80%E1%9F%92%E1%9E%9A%E1%9E%85%E1%9F%81%E1%9F%87-%E1%9E%9A%E1%9E%98%E1%9E%8E%E1%9E%B8%E1%9E%99%E1%9E%8A%E1%9F%92%E1%9E%8B%E1%9E%B6%E1%9E%93%E1%9E%91%E1%9E%B9%E1%9E%80%E1%9E%87%E1%9E%BD%E1%9E%9A%E1%9E%91%E1%9E%93%E1%9F%92%E1%9E%9B%E1%9F%81%E1%9E%98%E1%9F%81%E1%9E%82%E1%9E%84%E1%9F%92%E1%9E%82-%E1%9E%80%E1%9E%B6%E1%9F%86%E1%9E%96%E1%9E%B8.jpg')
+          center/cover no-repeat fixed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        position: relative;
+      }
+
+      .hero .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+      }
+
+      .hero-content {
+        position: relative;
+        color: white;
+        z-index: 2;
+      }
+
+      .hero-content h1,
+      .hero-content p {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 1s forwards;
+      }
+
+      .hero-content h1 {
+        animation-delay: 0.3s;
+        font-size: 4em;
+        font-family: Khmer OS Muol Light;
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+      }
+
+      .hero-content p {
+        animation-delay: 0.7s;
+        font-size: 1.5em;
+        font-family: Khmer OS Siemreap;
+      }
+
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      section {
+        padding: 60px 50px;
+        max-width: 1100px;
+        margin: auto;
+        background: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(6px);
+        border-radius: 12px;
+        margin-bottom: 40px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+      }
+
+      section h2 {
+        font-size: 2em;
+        margin-bottom: 20px;
+        color: #ffeb3b;
+        font-family: Khmer OS Muol Light;
+        text-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+      }
+
+      section p {
+        color: rgba(255, 255, 255, 0.95);
+        font-size: 1.15em;
+        font-family: Kh Koulen;
+        margin-bottom: 15px;
+      }
+
+      .gallery .images {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin-top: 25px;
+      }
+
+      .gallery img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        border-radius: 12px;
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+      }
+
+      .gallery img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+      }
+
+      .btn-container {
+        text-align: center;
+        margin-top: 30px;
+      }
+
+      .home-btn {
+        display: inline-block;
+        padding: 12px 30px;
+        background: linear-gradient(135deg, #00bbf0, #00204a);
+        color: white;
+        text-decoration: none;
+        border-radius: 30px;
+        font-weight: bold;
+        transition: 0.3s;
+        font-family: Kh Koulen;
+      }
+
+      .home-btn:hover {
+        background: linear-gradient(135deg, #00204a, #00bbf0);
+        transform: scale(1.05);
+        box-shadow: 0 0 15px #00bbf0;
+      }
+
+      footer {
+        text-align: center;
+        background: rgba(0, 0, 0, 0.3);
+        padding: 25px;
+        color: #fff;
+        font-size: 0.95em;
+        margin-top: 50px;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      @media (max-width: 768px) {
+        .hero-content h1 {
+          font-size: 3em;
+        }
+        .hero-content p {
+          font-size: 1.2em;
+        }
+        nav ul {
+          gap: 20px;
+        }
+        section {
+          padding: 40px 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">🇰🇭 Cambodia Map</div>
+      <nav>
+        <ul>
+          <li><a href="../index.htm">Home</a></li>
+          <li><a href="../Provinces.htm">Provinces</a></li>
+          <li><a href="../history.htm">History</a></li>
+          <li><a href="../contact.htm">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <section class="hero">
+      <div class="overlay"></div>
+      <div class="hero-content">
+        <h1>ខេត្តក្រចេះ</h1>
+        <p>ខេត្តស្នូលទឹក សម្បូរទេសភាពទំនិញ និងសិប្បកម្ម</p>
+        <a href="#about" class="home-btn">ស្វែងរកព័ត៌មាន</a>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <h2>ទិដ្ឋភាពទូទៅនៃខេត្តក្រចេះ</h2>
+      <p>
+        ខេត្តក្រចេះ (Kratie) ស្ថិតនៅភាគកណ្តាលនៃប្រទេសកម្ពុជា
+        ប៉ុន្តែមានជាប់ព្រំដែនជាមួយខេត្តមកពីភាគលិចនិងភាគជើង។
+        ខេត្តនេះមានទំហំប្រហែល
+        <strong>10,069 គីឡូម៉ែត្រការ៉េ</strong> និងប្រជាជនប្រមាណ
+        <strong>340,000 នាក់</strong> (ទិន្នន័យស្មើ)។
+      </p>
+      <p>
+        ខេត្តក្រចេះជាប់ខេត្តមណ្ឌលគិរីពីភាគជើង ខេត្តស៊ីហនុវិលពីភាគខាងលិច
+        និងខេត្តតាកែវពីភាគត្បូង។ ទេសភាពធម្មជាតិភាគច្រើនរួមមានទន្លេមេគង្គពោរពេញ
+        សញ្ជោតទឹកធ្លាក់ និងរុក្ខជាតិទឹកភាគល្អ។
+      </p>
+      <p>
+        ផ្លូវសេដ្ឋកិច្ចសំខាន់របស់ខេត្តនេះមានកសិកម្ម ទេសចរ និងពាណិជ្ជកម្មទន្លេ។
+        កំពង់ទឹកនៅក្រុងក្រចេះជាទីតាំងសំខាន់សម្រាប់ដឹកជញ្ជូនទំនិញតាមទឹកទៅតំបន់ផ្សេងៗ។
+      </p>
+    </section>
+
+    <section class="history" id="history">
+      <h2>ប្រវត្តិនៃខេត្តក្រចេះ</h2>
+      <p>
+        តំបន់ក្រចេះមានប្រវត្តិចាស់បំផុតមួយក្នុងប្រទេសកម្ពុជា
+        ដែលភាគច្រើនត្រូវបានគូរទៅនឹងការរស់នៅជនជាតិដើម
+        និងតំបន់ពាណិជ្ជកម្មតាមទន្លេមេគង្គ។
+      </p>
+      <p>
+        នៅសតវត្សទី ១៧ និង ១៨ ខេត្តក្រចេះបានក្លាយជាទីតាំងយោធា
+        និងជម្រុងសំខាន់ក្នុងប្រវត្តិសាស្ត្រនៃជម្លោះទឹកដី
+        និងការគ្រប់គ្រងតំបន់មេគង្គ។
+      </p>
+      <p>
+        នៅពេលសម្ព័ន្ធភាពសហព័ន្ធកម្ពុជា–ភូមិភាគខាងជើង
+        នេះបានធ្វើឲ្យក្រចេះក្លាយជា​គ្រឿងដីសេដ្ឋកិច្ចសំខាន់ ដោយសារប្រទេសជិតខាង
+        និងលំនៅមនុស្សក្នុងតំបន់ទន្លេ។
+      </p>
+      <p>
+        ទង្វើក្នុងសម័យក្រោយ អភិវឌ្ឍន៍ទីប្រជុំជន និងសេដ្ឋកិច្ច
+        បានធ្វើឲ្យខេត្តក្រចេះមានទីតាំងសេវាអប់រំ
+        និងសុខាភិបាលសមរម្យសម្រាប់ប្រជាជនក្នុងតំបន់។
+      </p>
+    </section>
+
+    <section class="culture" id="culture">
+      <h2>វប្បធម៌នៃខេត្តក្រចេះ</h2>
+      <p>
+        ប្រជាជនខេត្តក្រចេះភាគច្រើនជាជនជាតិខ្មែរ
+        ប៉ុន្តែមានជនជាតិមូលដ្ឋានដូចជាជនជាតិមេឃ (Chea)
+        និងជនជាតិឃុយក្នុងតំបន់ក្បែរ ទន្លេ។ ពួកគេរក្សាប្រពៃណីភាសា
+        និងរបៀបរស់នៅបុរាណ។
+      </p>
+      <p>
+        ពិធីបុណ្យសំខាន់ៗរួមមាន បុណ្យចូលឆ្នាំខ្មែរ, បុណ្យភ្ជុំបិណ្ឌ, បុណ្យអុំទូក,
+        និងពិធីបុណ្យទឹក។ ក៏មានបុណ្យបុរាណចម្រុះទៀតនៅក្នុងភូមិជិតទន្លេ
+        និងកោះនៅលើទន្លេ។
+      </p>
+      <p>
+        សិប្បកម្មទំនើបៗរួមមានការថែទាំនិងផលិតប៉ាក់លលើដំណាំទឹក ប្រមូលសត្វទឹក
+        និងកសិកម្មលើដីជ្រៅ។ ក៏មានសិប្បកម្មដែកសំណង់ផ្ទះតូចៗ
+        និងពណោលដោយសំឡេងសុទ្ធនៅតាមវិថីភូមិ។
+      </p>
+      <p>
+        វប្បធម៌ទេសចរណ៍ក្រចេះគឺទាក់ទាញដោយសារ​ទេសភាពទន្លេមេគង្គ
+        កោះកណ្តាលទន្លេខ្សែស្រឡាយ (River Dolphins in Mekong)
+        ជាក្រុមសត្វទឹកស្តើងសែនសំខាន់នៅទីនេះ។ សកម្មភាពទេសចរ​រួមមាន
+        កម្សាន្តតាមទឹក, ធ្វើដំណើរកំសាន្តក្បែរទឹក, និងទស្សនាវប្បធម៌ភូមិ។
+      </p>
+    </section>
+
+    <section class="gallery" id="gallery">
+      <h2>ទីកន្លែងល្បីៗនៅខេត្តក្រចេះ</h2>
+      <div class="images">
+        <img
+          src="https://kptmedia.ap-south-1.linodeobjects.com/2025/08/6077739265325909037-1024x577.jpg"
+          alt="ទន្លេមេគង្គក្រោយក្រចេះ"
+        />
+        <img
+          src="https://s3.ams.com.kh/economy/2022/12/MekongRiver.jpg"
+          alt="កោះក្រតោ"
+        />
+        <img
+          src="https://gdb.voanews.com/ad973e5d-88f6-4975-a84e-e1b434cf2b4e_w1080_h608_s.jpg"
+          alt="ត្រីទន្លេ / ទន្សាយទឹក"
+        />
+      </div>
+    </section>
+
+    <div class="btn-container">
+      <a href="../index.htm" class="home-btn">🏠 ត្រឡប់ទៅទំព័រដើម</a>
+    </div>
+
+    <footer>
+      <p>© ២០២៥ គម្រោងផែនទីខេត្តកម្ពុជា — ទំព័ររបស់ខេត្តក្រចេះ</p>
+    </footer>
+  </body>
+</html>

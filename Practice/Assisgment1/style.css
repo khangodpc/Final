@@ -1,0 +1,21 @@
+body {
+  background-image: url(https://w0.peakpx.com/wallpaper/282/851/HD-wallpaper-technology-msi.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+.font,
+h1 {
+  color: aliceblue;
+  font-family: Khmer OS Muol Light, Franklin Gothic Medium;
+}
+p {
+  color: azure;
+}
+marquee {
+  position: sticky;
+  bottom: 0;
+  font-size: 14pt;
+  font-family: Khmer OS Muol Light;
+  background-image: linear-gradient(to right, red, blue);
+}

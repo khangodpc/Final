@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ខេត្តសៀមរាប - ប្រវត្តិនិងវប្បធម៌ដ៏ធំទូលាយ</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Battambang&family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Battambang', 'Poppins', sans-serif;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: url('https://cambodiapropertyreport.com//storage/posts/June2019/shutterstock_106075160.jpg')
+          center/cover no-repeat fixed;
+        color: white;
+        line-height: 1.6;
+      }
+
+      body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        z-index: -1;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(10px);
+        padding: 15px 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 10;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        transition: 0.3s;
+      }
+
+      header:hover {
+        background: rgba(0, 0, 0, 0.35);
+      }
+
+      .logo {
+        font-size: 1.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 35px;
+      }
+
+      nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+        position: relative;
+        transition: 0.3s;
+      }
+
+      nav a::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -4px;
+        left: 0;
+        background: #ffeb3b;
+        transition: 0.3s;
+      }
+
+      nav a:hover {
+        color: #ffeb3b;
+      }
+
+      nav a:hover::after {
+        width: 100%;
+      }
+
+      .hero {
+        height: 100vh;
+        background: url('https://cdn.sabay.com/cdn/media.sabay.com/media/KevPumsen/pumsen03/6193131c011b4_1637028600_medium.jpg')
+          center/cover no-repeat fixed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        position: relative;
+      }
+
+      .hero .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+      }
+
+      .hero-content {
+        position: relative;
+        color: white;
+        z-index: 2;
+      }
+
+      .hero-content h1,
+      .hero-content p {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 1s forwards;
+      }
+
+      .hero-content h1 {
+        animation-delay: 0.3s;
+        font-size: 4em;
+        font-family: Khmer OS Muol Light;
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+      }
+
+      .hero-content p {
+        animation-delay: 0.7s;
+        font-size: 1.5em;
+        font-family: Khmer OS Siemreap;
+      }
+
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      section {
+        padding: 60px 50px;
+        max-width: 1100px;
+        margin: auto;
+        background: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(6px);
+        border-radius: 12px;
+        margin-bottom: 40px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+      }
+
+      section h2 {
+        font-size: 2em;
+        margin-bottom: 20px;
+        color: #ffeb3b;
+        font-family: Khmer OS Muol Light;
+        text-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+      }
+
+      section p {
+        color: rgba(255, 255, 255, 0.95);
+        font-size: 1.15em;
+        font-family: Kh Koulen;
+        margin-bottom: 15px;
+      }
+
+      .gallery .images {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin-top: 25px;
+      }
+
+      .gallery img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        border-radius: 12px;
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+      }
+
+      .gallery img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+      }
+
+      .btn-container {
+        text-align: center;
+        margin-top: 30px;
+      }
+
+      .home-btn {
+        display: inline-block;
+        padding: 12px 30px;
+        background: linear-gradient(135deg, #00bbf0, #00204a);
+        color: white;
+        text-decoration: none;
+        border-radius: 30px;
+        font-weight: bold;
+        transition: 0.3s;
+        font-family: Kh Koulen;
+      }
+
+      .home-btn:hover {
+        background: linear-gradient(135deg, #00204a, #00bbf0);
+        transform: scale(1.05);
+        box-shadow: 0 0 15px #00bbf0;
+      }
+
+      footer {
+        text-align: center;
+        background: rgba(0, 0, 0, 0.3);
+        padding: 25px;
+        color: #fff;
+        font-size: 0.95em;
+        margin-top: 50px;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      @media (max-width: 768px) {
+        .hero-content h1 {
+          font-size: 3em;
+        }
+        .hero-content p {
+          font-size: 1.2em;
+        }
+        nav ul {
+          gap: 20px;
+        }
+        section {
+          padding: 40px 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">🇰🇭 Cambodia Map</div>
+      <nav>
+        <ul>
+          <li><a href="../index.htm">Home</a></li>
+          <li><a href="../Provinces.htm">Provinces</a></li>
+          <li><a href="../history.htm">History</a></li>
+          <li><a href="../contact.htm">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="overlay"></div>
+      <div class="hero-content">
+        <h1>ខេត្តសៀមរាប</h1>
+        <p>
+          ទីក្រុងប្រាសាទ និងវប្បធម៌អង្គរ ដែលមានប្រវត្តិនិងសោភ័ណភាពយ៉ាងបរិសុទ្ធ
+        </p>
+        <a href="#about" class="home-btn">ស្វែងរកព័ត៌មាន</a>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <h2>ទិដ្ឋភាពទូទៅនៃខេត្តសៀមរាប</h2>
+      <p>
+        ខេត្តសៀមរាបស្ថិតនៅភាគខាងជើងនៃប្រទេសកម្ពុជា
+        ជាកណ្ដាលដ៏សំខាន់មួយសម្រាប់បច្ចេកវិទ្យាពីរបារ និងទេសចរណ៍។
+        ទីតាំងខេត្តនេះជាប់ទន្លេសៀមរាប ពីព្រោះមានទន្លេសៀមរាប
+        និងជិតទន្លេធំទូលាយស្ទឹងត្រង់ទន្លេTonlé Sap
+        ដែលជាបឹងទឹកដ៏សំខាន់សម្រាប់ប្រជាជនក្នុងប្រទេស។
+      </p>
+      <p>
+        ទីរួមខេត្ត (ក្រុងសៀមរាប) ជាកន្លែងពាណិជ្ជកម្មសំខាន់
+        និងមជ្ឈិតសេវាសាធារណៈសម្រាប់ទេសចរណ៍ បម្រើរោងចក្រ សណ្ឋាគារ
+        និងទីផ្សារទំនើបទាំងក្នុងទិសភាគខាងជើង និងជិតប្រាសាទអង្គរ។
+        ការអភិវឌ្ឍន៍ផ្លូវ ទេសភាពធម្មជាតិ
+        និងការរស់រវើក​ចំហរនៃនីតិសម្បូរបែបបានប្រែក្លាយឲ្យសៀមរាបក្លាយជាទីលំនៅប្រកបដោយចំណង់ចំណូលចិត្តទាំងពីរជាតិនិងបរទេស។
+      </p>
+    </section>
+
+    <section class="history" id="history">
+      <h2>ប្រវត្តិនៃខេត្តសៀមរាប</h2>
+      <p>
+        ប្រវត្តិនៃស្រុកសៀមរាប
+        និងប្រាសាទអង្គររួមទាំងតំបន់ជុំវិញវាជារឿងចម្រុះនិងមានសារៈសំខាន់យ៉ាងខ្លាំងក្នុងប្រវត្តិសាស្ត្រខ្មែរ។
+        ជាង៩សតវត្សមកហើយ
+        ថ្ងៃដែលអាណាចក្រខ្មែរបានស្ថាបនាកំណត់តំបន់អង្គរនៅក្នុងសម័យចំណោមរបស់សូរិយវរ្ម័នទី២
+        និងរាជវង្សជាពិសេសជាមួយអធិបតីជាច្រើនដែលបានសាងសង់ប្រាសាទដ៏អស្ចារ្យៗដូចជា
+        អង្គរវត្ត អង្គរធំ បាយ័ន ប្រាវាញ័រ និងប្រាសាទតាព្រហ្ម។
+      </p>
+      <p>
+        ក្នុងសម័យចំណាស់ ជាពិសេសសម័យអង្គរ អតីតប្រាសាទ
+        និងបារីសម្រាប់អប់រំសាសនាត្រូវបានសាងសង់យ៉ាងអស្ចារ្យ។
+        ទោះបីប្រាសាទជាច្រើនត្រូវបានបាត់បង់ ឬរលំ ជាពេលវេលា ការរក្សាទុក
+        និងស្រាវជ្រាវបានចាប់ផ្តើមឡើងវិញ។
+      </p>
+      <p>
+        ក្រោយការចុះចត
+        និងការផ្លាស់ប្តូរផែនដីក្នុងសម័យអាណានិគមនិងសម័យសង្គ្រាមនៅសៀមរាប
+        ប្រជាជនបានទទួលផលប៉ះពាល់ធំៗ ប៉ុន្តែការសង្រ្គោះប្រាសាទ អាជីវកម្មទេសចរណ៍
+        និងការវិនិយោគពីក្នុងប្រទេសនិងក្រៅប្រទេសបានធ្វើឲ្យខេត្តនេះមានការរីកចម្រើនឡើងវិញយ៉ាងឆាប់រហ័ស។
+        ឧទាហរណ៍សណ្ឋាគារនៅជុំវិញប្រាសាទ ការកសាងទុនវិស័យសេវា
+        និងអាហារូបត្ថម្ភទេសចរណ៍។
+      </p>
+    </section>
+
+    <section class="culture" id="culture">
+      <h2>វប្បធម៌នៃខេត្តសៀមរាប</h2>
+      <p>
+        វប្បធម៌សៀមរាបសម្រាប់ការសម្តែងសិល្បៈប្រពៃណីខ្មែរ មានភាពចម្រុះនិងរុងរឿង។
+        រាំអប្សរ ជាផ្នែកមួយដ៏ល្អឥតខ្ចោះ ដែលធ្វើឲ្យភ្ញៀវទេសចរណ៍
+        និងប្រជាពលរដ្ឋទាំងមិនស្គាល់មកកាន់សៀមរាបមានអារម្មណ៍ទាក់ទាញ។ លើសពីនេះ
+        ការសម្តែងការពុះពារព្រមទាំងខួបបុណ្យជាតិទាំងឡាយ ដូចជា​ បុណ្យចូលឆ្នាំខ្មែរ
+        បុណ្យភ្ជុំបិណ្ឌ និងបុណ្យអុំទូក ត្រូវបានប្រារព្ធឡើងយ៉ាងធំ។
+      </p>
+      <p>
+        សិល្បៈដៃ គឺជារឿងមួយដែលស្នូលនៅក្នុងជីវិតប្រជាជនទំនើប និងប្រពៃណី។ ឧទាហរណ៍
+        ការបោះដុំអុបទិ៍ដ៏ស្អាតៗផ្ទាល់ពីលក់ដុំដៃ ការរូបក្បាលក្រវិលកឹ។ ក៏ដូចជា
+        Ceramic និងកាសែតក្នុងសៀមរាប ដែលមានឈុតឆាយជាលក្ខណៈបុរាណ
+        និងទំនើបរួមបញ្ចូលគ្នា។
+      </p>
+      <p>
+        ទេសចរណ៍ជាតិនិងអន្តរជាតិគឺជាឧបករណ៍សំខាន់ក្នុងការរីកចម្រើនវប្បធម៌
+        និងសេដ្ឋកិច្ច។ សៀមរាបមានទីផ្សារដែលសម្រាប់សមត្ថភាពអ្នកដំណើរ
+        និងស្នាក់នៅលើផ្លូវ Pub Street ម្ហូបម្ហូបផ្លូវ
+        ទេសចរណ៍វាលស្រែរួចជាកន្លែងទាក់ទាញ ចង្កៀង និងសំណាក់បុរាណគ្រប់ប្រភេទ។
+      </p>
+      <p>
+        កាពារ និងប្រភេទសាសនានានា ក៏បានរស់នៅក្នុងសៀមរាប។
+        វត្តបុរាណជាច្រើននៅក្នុងទីក្រុង និងជិតប្រាសាទ មានការ​សម្តែងព្រះពុទ្ធសាសនា
+        និងព្រះសង្ឃ ដើម្បីអនុស្សាវរីយ៏ពីអតីត បច្ចុប្បន្ន និងក្រុមគ្រួសារ។ Wat
+        Bo, Wat Preah Prom Rath និងវត្តទៀតៗជាកន្លែងដែលប្រជាជនទៅសម័ណ ចូលបួស
+        និងសូត្រ។
+      </p>
+    </section>
+
+    <section class="gallery" id="gallery">
+      <h2>📸 ទីកន្លែងល្បីៗនៅខេត្តសៀមរាប</h2>
+      <div class="images">
+        <img
+          src="https://apsaraauthority.gov.kh/wp-content/uploads/2024/06/1-32.jpg"
+          alt="ប្រាសាទអង្គរវត្ត"
+        />
+        <img
+          src="https://phkaslapartner.com/wp-content/uploads/2023/11/image_2023-11-06_17-03-44-1024x576.jpg"
+          alt="អង្គរធំ"
+        />
+        <img
+          src="https://i.ytimg.com/vi/ykUvvar_pS8/maxresdefault.jpg"
+          alt="វត្តបូ Wat Bo"
+        />
+        <img
+          src="https://asset.tovtrip.com//uploads/0000/109/2023/04/05/61.png"
+          alt="ផ្សារព្រឹក និងផ្សារថ្ងៃស្អែក"
+        />
+        <img
+          src="https://image.thmeythmey.com/pictures/2021/07/09/9720211805front.jpg"
+          alt="វាលស្រែក្នុងជ្រុងជនប្រជុំជន"
+        />
+        <img
+          src="https://phkaslapartner.com/wp-content/uploads/2023/10/image-8-1024x576.jpg"
+          alt="ភូមិវប្បធម៌កម្ពុជា"
+        />
+      </div>
+    </section>
+
+    <div class="btn-container">
+      <a href="../index.htm" class="home-btn">🏠 ត្រឡប់ទៅទំព័រដើម</a>
+    </div>
+
+    <footer>
+      <p>© ២០២៥ គម្រោងផែនទីខេត្តកម្ពុជា — ទំព័ររបស់ខេត្តសៀមរាប</p>
+    </footer>
+  </body>
+</html>

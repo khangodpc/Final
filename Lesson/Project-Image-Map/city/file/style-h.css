@@ -1,0 +1,294 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background-image: url('https://cdn.britannica.com/27/4027-050-15A75C70/Flag-Cambodia.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: #222;
+  line-height: 1.6;
+}
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.344); /* dim effect */
+  z-index: -1;
+}
+/* 🌟 Professional Header Style */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  background: rgba(0, 14, 164, 0.9);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 70px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+/* ✨ Header Hover Glow Effect */
+header:hover {
+  background: rgba(0, 74, 173, 1);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* 🔷 Logo */
+.logo {
+  font-size: 1.9rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: #ffffff;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.4),
+    0 0 20px rgba(0, 140, 255, 0.5);
+  cursor: pointer;
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+  text-shadow: 0 0 20px rgba(0, 140, 255, 0.8), 0 0 40px rgba(0, 140, 255, 0.6);
+}
+
+/* 🌈 Navigation */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+  margin: 0;
+}
+
+nav a {
+  position: relative;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 5px 0;
+  transition: all 0.3s ease;
+}
+
+/* Hover animation underline */
+nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0%;
+  height: 2px;
+  background-color: #ffeb3b;
+  box-shadow: 0 0 8px #ffeb3b;
+  transition: width 0.3s ease;
+}
+
+nav a:hover {
+  color: #ffeb3b;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* 📱 Responsive Header */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+  }
+
+  .logo {
+    margin-bottom: 10px;
+  }
+}
+
+/* 🌆 Beautiful City List Grid */
+.city-list {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 40px 60px;
+  margin: 40px auto;
+  border-radius: 20px;
+  max-width: 1000px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  color: #fff;
+  text-align: center;
+  backdrop-filter: blur(10px);
+}
+
+.city-list h2 {
+  font-size: 20pt;
+  font-family: Khmer OS Muol Light;
+  margin-bottom: 30px;
+  color: #ffeb3b;
+  text-shadow: 0 0 10px #000000;
+}
+
+/* 🟦 Grid Layout */
+.city-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
+/* 🔹 City Button Style */
+.city-grid a {
+  display: inline-block;
+  width: 100%;
+  padding: 12px 10px;
+  background: linear-gradient(
+    135deg,
+    rgba(17, 3, 214, 0.782),
+    rgba(255, 0, 166, 0.627)
+  );
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 12px;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+
+  font-family: Kh Koulen;
+}
+
+/* Hover Effect */
+.city-grid a:hover {
+  background: #ffffff;
+  color: #000000;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(255, 0, 0, 0.4);
+}
+
+/* 📱 Responsive */
+@media (max-width: 600px) {
+  .city-list {
+    padding: 30px 20px;
+  }
+
+  .city-list h2 {
+    font-size: 1.6rem;
+  }
+}
+
+/* 🏙️ City Sections */
+.city-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 80px 10%;
+  min-height: 100vh;
+  color: #fff;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.city-section:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.city-section img {
+  width: 45%;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease;
+}
+
+.city-section img:hover {
+  transform: scale(1.03);
+}
+
+.city-info {
+  max-width: 500px;
+}
+
+.city-info h2 {
+  color: #ffeb3b;
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+  font-family: Khmer OS Muol Light;
+  text-shadow: 0 0 10px rgba(255, 235, 59, 0.7);
+}
+
+.city-info p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  font-family: Kh Koulen;
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .city-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .city-section img {
+    width: 90%;
+  }
+}
+
+.back-to-list {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #ffeb3b;
+  color: #003366;
+  font-weight: 600;
+  text-decoration: none;
+  font-family:Khmer OS Siemreap;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.back-to-list:hover {
+  background: #003366;
+  color: #ffeb3b;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+footer {
+  margin-top: 50px;
+  background-image: linear-gradient(to right, blue, rgb(42, 149, 255));
+  color: white;
+  padding: 10px;
+  font-size: 15pt;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 500;
+
+  text-align: center;
+}
+marquee {
+  font-family: Kh Koulen;
+}

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ខេត្តប៉ៃលិន – ប្រវត្តិ និងវប្បធម៌ដ៏សំបូរ</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Battambang&family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Battambang', 'Poppins', sans-serif;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: url('https://tamabmmo.wordpress.com/wp-content/uploads/2014/12/phanom-rung-historical-park.jpg')
+          center/cover no-repeat fixed;
+        color: white;
+        line-height: 1.6;
+      }
+      body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        z-index: -1;
+      }
+      header {
+        position: sticky;
+        top: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(10px);
+        padding: 15px 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 10;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        transition: 0.3s;
+      }
+      header:hover {
+        background: rgba(0, 0, 0, 0.35);
+      }
+      .logo {
+        font-size: 1.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 35px;
+      }
+      nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+        position: relative;
+        transition: 0.3s;
+      }
+      nav a::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -4px;
+        left: 0;
+        background: #ffeb3b;
+        transition: 0.3s;
+      }
+      nav a:hover {
+        color: #ffeb3b;
+      }
+      nav a:hover::after {
+        width: 100%;
+      }
+      .hero {
+        height: 100vh;
+        background: url('https://s6.kh1.co/__image/w=650,h=294,q=100/23/238863dbef06a6ca670deb431751061ca67c6a2a.jpg')
+          center/cover no-repeat fixed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        position: relative;
+      }
+      .hero .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+      }
+      .hero-content {
+        position: relative;
+        color: white;
+        z-index: 2;
+      }
+      .hero-content h1,
+      .hero-content p {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 1s forwards;
+      }
+      .hero-content h1 {
+        animation-delay: 0.3s;
+        font-size: 4em;
+        font-family: Khmer OS Muol Light;
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+      }
+      .hero-content p {
+        animation-delay: 0.7s;
+        font-size: 1.5em;
+        font-family: Khmer OS Siemreap;
+      }
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      section {
+        padding: 60px 50px;
+        max-width: 1100px;
+        margin: auto;
+        background: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(6px);
+        border-radius: 12px;
+        margin-bottom: 40px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+      }
+      section h2 {
+        font-size: 2em;
+        margin-bottom: 20px;
+        color: #ffeb3b;
+        font-family: Khmer OS Muol Light;
+        text-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+      }
+      section p {
+        color: rgba(255, 255, 255, 0.95);
+        font-size: 1.15em;
+        font-family: Kh Koulen;
+        margin-bottom: 15px;
+      }
+      .gallery .images {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin-top: 25px;
+      }
+      .gallery img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        border-radius: 12px;
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+      }
+      .gallery img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+      }
+      .btn-container {
+        text-align: center;
+        margin-top: 30px;
+      }
+      .home-btn {
+        display: inline-block;
+        padding: 12px 30px;
+        background: linear-gradient(135deg, #00bbf0, #00204a);
+        color: white;
+        text-decoration: none;
+        border-radius: 30px;
+        font-weight: bold;
+        transition: 0.3s;
+        font-family: Kh Koulen;
+      }
+      .home-btn:hover {
+        background: linear-gradient(135deg, #00204a, #00bbf0);
+        transform: scale(1.05);
+        box-shadow: 0 0 15px #00bbf0;
+      }
+      footer {
+        text-align: center;
+        background: rgba(0, 0, 0, 0.3);
+        padding: 25px;
+        color: #fff;
+        font-size: 0.95em;
+        margin-top: 50px;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      @media (max-width: 768px) {
+        .hero-content h1 {
+          font-size: 3em;
+        }
+        .hero-content p {
+          font-size: 1.2em;
+        }
+        nav ul {
+          gap: 20px;
+        }
+        section {
+          padding: 40px 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">🇰🇭 Cambodia Map</div>
+      <nav>
+        <ul>
+          <li><a href="../index.htm">Home</a></li>
+          <li><a href="../Provinces.htm">Provinces</a></li>
+          <li><a href="../history.htm">History</a></li>
+          <li><a href="../contact.htm">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="overlay"></div>
+      <div class="hero-content">
+        <h1>ខេត្តប៉ៃលិន</h1>
+        <p>ខេត្តចង្អើរ​នៅភាគខាងលិច ស៊ាំនឹងប្រវត្តិកសិកម្ម និងវប្បធម៌ពហុមុខ</p>
+        <a href="#about" class="home-btn">ស្វែងរកព័ត៌មាន</a>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <h2>ទិដ្ឋភាពទូទៅនៃខេត្តប៉ៃលិន</h2>
+      <p>
+        ខេត្តប៉ៃលិន (Pailin) ជា ខេត្តតូចមួយស្ថិតនៅខាងលិចនៃប្រទេសកម្ពុជា
+        ដែលជិតព្រំដែនប្រទេសថៃ។ តាមការអញ្ជើញចេញពីវិគីភីឌា
+        ខេត្តប៉ៃលិនមានផ្ទៃដីប្រមាណ **803 គីឡូម៉ែត្រការេ** និយាយពីចំនួនប្រជាជន
+        នាពេលសង្គ្រោះសរុបឆ្នាំ ២០១៩ មានប្រជាជនប្រមាណ **75,112 នាក់**
+        ខេត្តស្ថិតនៅចំចំណុចប្រហែល **ក្រវាត់កម្ពស់** និងភាគលិចរបស់ប្រទេស,
+        ជាប់ខេត្តបាត់ដំបង និងជាប់ប្រទេសថៃ។
+      </p>
+      <p>
+        ខេត្តប៉ៃលិនត្រូវបានបែងខុសស្ថិតពីខេត្តបាត់ដំបង
+        ហើយក្រោយមកបានក្លាយជាខេត្តឯករាជក្នុងឆ្នាំ ២០០៨
+        តំបន់ភូមិសាស្ត្រនៃខេត្តមានលក្ខណៈព្រៃភាគរយ
+        និងមានភ្នំភាគតិចៗតាមព្រំប្រទល់។
+        ដីធ្លីនៅខេត្តនេះមានលក្ខខណ្ឌល្អសម្រាប់ដំណាំមុខទឹក និងកសិកម្មបៃតង។
+      </p>
+    </section>
+
+    <section class="history" id="history">
+      <h2>ប្រវត្តិនៃខេត្តប៉ៃលិន</h2>
+      <p>
+        ដំណើរបានដើរចាប់ពីសម័យអង្គរ តំបន់នេះស្តាប់សំឡេងពីសិល្បៈបុរាណ
+        និងអាណាចក្រខ្មែរ ប៉ុន្តែពេញពេលចម្រង់រដ្ឋាភិបាល និងកងទ័ពបានបំផ្លាញ
+        និងបម្រែបម្រួលយ៉ាងខ្លាំង។
+      </p>
+      <p>
+        ក្នុងសម័យសង្គ្រាមពុល រដ្ឋបាលបានប្រើប្រាស់ប៉ៃលិនជាតំបន់ស៊ុម
+        ចំណែកមនុស្សឈប់នៅក្នុងដងជំងឺ និងសកម្មភាពប្រឆាំង។ ពេលបន្ទាប់,
+        ប៉ៃលិនបានកើតមានការកសាងឡើងវិញ និងការអភិវឌ្ឍទិន្នន័យសេដ្ឋកិច្ច។
+      </p>
+      <p>
+        ឆ្នាំ ២០១៩ ខេត្តប៉ៃលិនបានសម្រេចចែកអំណោយដល់កសិករ ២៦០ គ្រួសារ
+        ដែលរងគ្រោះដោយគ្រោះធម្មជាតិ ដោយផ្តល់ពូជ​​ ស្ម និងជីកសិកម្ម
+        ក៏ដូចជាការវិនិយោគនិងសាងសង់ផ្លូវ និងអគារធនធានសាធារណៈ បន្ថែមកន្លែងប្រជុំ
+        និងសេវាកម្មសាធារណៈផ្សេងៗ។
+      </p>
+    </section>
+
+    <section class="culture" id="culture">
+      <h2>វប្បធម៌នៃខេត្តប៉ៃលិន</h2>
+      <p>
+        នៅខេត្តប៉ៃលិន ប្រជាជនភាគច្រើននិយមអនុវត្តបុណ្យប្រពៃណីខ្មែរ ដូចជា
+        **បុណ្យចូលឆ្នាំ**, **បុណ្យភ្ជុំបិណ្ឌ**, **បុណ្យអុំទូក** ជាដើម។
+        ក្នុងពេលបុណ្យទឹក ប្រភេទភូមិជិតទន្លេ និងស្ពានត្រូវធ្វើកម្មវិធីប្រណាំងទូក
+        និងពិធីបុណ្យទឹកផ្សេងៗ។
+      </p>
+      <p>
+        សិល្បៈ និងសិប្បកម្មដ៏ល្អនៅប៉ៃលិនរួមមាន៖ - ការរកស៊ីមាស និងប្រាក់ នេះជា
+        ប្រវត្តិសម្បូរមួយនៅក្នុងប៉ៃលិន រួមមានការទាញយករ៉ែ និងដាក់ពិចារណាជាតិ។ -
+        សិប្បកម្មដៃ ការពណ៌ប្រៀប (painting), ការថតរូបភាពនិងផលិតផលសិល្បៈខ្នាតតូចៗ។
+        - វប្បធម៌ភាសា និយមនិយមភាសាខ្មែរ
+        ជាភាសាផ្លូវការហើយមានការប្រែប្រួលលើមួយភូមិភាគតូចៗជាមួយភាសាផ្សេងទៀតនៅទួលព្រំដែន។
+      </p>
+      <p>
+        ក៏មានកន្លែងទេសចរណ៍ដ៏សំខាន់នៅប៉ៃលិន ដូចជា ប្រាសាទបុរាណ ទេសភាពភ្នំ ទន្លេ
+        និងព្រៃ។ អ្នកទេសចរអាចទៅដើរដល់ទីលានធម្មជាតិនៅព្រៃសហគម នេសាទ
+        ឬស្វែងយល់ពីប្រពៃណីនិងរបៀបរស់នៅក្នុងភូមិ។
+      </p>
+    </section>
+
+    <section class="gallery" id="gallery">
+      <h2>ទីកន្លែងល្បីៗនៅខេត្តប៉ៃលិន</h2>
+      <div class="images">
+        <img
+          src="https://phkaslapartner.com/wp-content/uploads/2023/10/image_2023-10-16_13-44-46-edited.jpg"
+          alt="ប្រាសាទប៉ៃលិន"
+        />
+        <img
+          src="https://phkaslapartner.com/wp-content/uploads/2023/07/image-2-37-edited.jpg"
+          alt="ភ្នំពីប៉ៃលិន"
+        />
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/View_from_Phnom_Yat._%2C_Pailin.jpg/1200px-View_from_Phnom_Yat._%2C_Pailin.jpg"
+          alt="ព្រៃនៅប៉ៃលិន"
+        />
+      </div>
+    </section>
+
+    <div class="btn-container">
+      <a href="../index.htm" class="home-btn">🏠 ត្រឡប់ទៅទំព័រដើម</a>
+    </div>
+
+    <footer>
+      <p>© ២០២៥ គម្រោងផែនទីខេត្តកម្ពុជា — ទំព័ររបស់ខេត្តប៉ៃលិន</p>
+    </footer>
+  </body>
+</html>

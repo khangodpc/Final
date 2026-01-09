@@ -1,0 +1,143 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 30px;
+}
+.container {
+  width: 80%;
+  height: auto;
+  margin: auto;
+  background: gray;
+  padding: 20px;
+}
+.top-box {
+  width: 100%;
+  height: auto;
+  /* background-color: aqua; */
+  display: flex;
+  justify-content: space-between;
+}
+.logo {
+  width: 30%;
+  height: 70px;
+  background-color: green;
+}
+.menu {
+  width: 69%;
+  height: 70px;
+  background-color: rgb(255, 0, 0);
+}
+.cover {
+  width: 100%;
+  height: 100px;
+  background-color: blue;
+  margin-top: 10px;
+}
+.contain-box {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.content {
+  width: 69%;
+  height: 300px;
+  background-color: yellow;
+}
+.adv {
+  width: 30%;
+  height: 300px;
+  background-color: pink;
+}
+.other-box {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.other {
+  width: 24.5%;
+  height: 250px;
+  margin-bottom: 10px;
+  background-color: orange;
+}
+.footer {
+  width: 100%;
+  height: 150px;
+  background: rgb(0, 255, 234);
+  /* margin-top: 10px; */
+}
+/* tablet  */
+@media (max-width: 1279px) and (min-width: 481px) {
+  .top-box {
+    flex-direction: column;
+  }
+  .logo {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .menu {
+    width: 100%;
+  }
+
+  .contain-box {
+    flex-direction: column;
+  }
+  .content {
+    width: 100%;
+    margin-bottom: 10px;
+    height: 250px;
+  }
+  .adv {
+    width: 100%;
+    height: 100px;
+  }
+  .other-box {
+    /* flex-direction: column; */
+    flex-wrap: wrap;
+  }
+  .other {
+    width: 49.5%;
+    margin-bottom: 10px;
+  }
+}
+
+/* mobile  */
+@media (max-width: 480px) {
+  .top-box {
+    flex-direction: column;
+  }
+  .logo{
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .menu{
+    width: 100%;
+  }
+
+  .contain-box{
+    flex-direction: column;
+  }
+  .content{
+    width: 100%;
+    margin-bottom: 10px;
+    height: 250px;
+  }
+  .adv{
+    width: 100%;
+    height: 100px;
+  }
+  .other-box{
+    /* flex-direction: column; */
+    flex-wrap: wrap;
+
+  }
+  .other{
+    width: 100%;
+    height: 150px;
+    margin-bottom: 10px;
+
+  }
+}

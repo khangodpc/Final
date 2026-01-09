@@ -1,0 +1,262 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+html {
+  scroll-behavior: smooth;
+}
+:root {
+  --coffee: #6f4e37;
+  --coffee-dark: #4e342e;
+  --cream: #f9f4f0;
+  --text-dark: #2e2e2e;
+  --text-light: #666;
+  --white: #ffffff;
+}
+body {
+  line-height: 1.6;
+  color: #333;
+  scroll-behavior: smooth;
+}
+
+/* Navigation */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 10%;
+  background: var(--white);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--coffee);
+  letter-spacing: 1px;
+}
+
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: var(--text-dark);
+  font-weight: 500;
+  position: relative;
+}
+
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: var(--coffee);
+  left: 0;
+  bottom: -6px;
+  transition: 0.3s;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+/* Hero Section */
+.hero {
+  height: 80vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1350&q=80');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 30px;
+  background: #6f4e37;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 20px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #563c2b;
+}
+/* Slider Container */
+.slider {
+  width: 100%;
+  height: 250px;
+  margin: 40px 0;
+  overflow: hidden; /* Hides images outside the box */
+  position: relative;
+  background: white;
+}
+
+/* The actual moving track */
+.slide-track {
+  display: flex;
+  width: calc(250px * 8); /* Width of one image * total images */
+  animation: scroll 20s linear infinite; /* 20s is the speed */
+}
+
+/* Individual Slide */
+.slide {
+  width: 500px;
+  height: 250px;
+  padding: 10px;
+}
+
+.slide img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.banner {
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+  position: relative;
+}
+
+.banner-track {
+  display: flex;
+  width: calc(260%); /* because images are duplicated */
+  animation: scroll-left 20s linear infinite;
+}
+
+.banner-track img {
+  width: 25%; /* 8 images total → 4 images per loop */
+  height: 450px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* Continuous scrolling */
+@keyframes scroll-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+/* Sections */
+section {
+  padding: 80px 10%;
+  text-align: center;
+}
+
+.section-title {
+  margin-bottom: 40px;
+  font-size: 2.5rem;
+  color: rgb(93, 29, 29);
+}
+
+/* Menu */
+.menu-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.menu-item {
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+.menu-item span {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #6f4e37;
+}
+/* add after .menu-item rules */
+.menu-item img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+/* Services/Catering */
+.services {
+  background: #f9f4f0;
+}
+
+.service-grid {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.service-card {
+  background: white;
+  padding: 30px;
+  width: 300px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Contact Form */
+form {
+  max-width: 600px;
+  margin: 30px auto;
+  display: flex;
+  flex-direction: column;
+}
+
+form input,
+form textarea {
+  padding: 15px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+footer {
+  margin-top: 50px;
+  background-image: linear-gradient(
+    to right,
+    rgb(71, 32, 32),
+    rgba(78, 42, 42, 0.707)
+  );
+  color: white;
+  padding: 10px;
+  font-size: 15pt;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 500;
+  text-align: center;
+}
+
+marquee {
+  font-family: 'Kh Koulen';
+}

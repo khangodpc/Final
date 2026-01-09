@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ខេត្តកំពង់ឆ្នាំង - មរតកវប្បធម៌ និងទេសភាពទឹក</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Battambang&family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Battambang', 'Poppins', sans-serif;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: url('https://static.information.gov.kh/rails/active_storage/representations/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBeFVtQnc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--8e472de6824ffd2c6f32da1242ecc58608c916a5/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9MY21WemFYcGxTU0lNT1RBd2VEWXdNQVk2QmtWVSIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--70cbddbba2e46c7ca8ac0c1f8b8316d88752e16d/3.jpg')
+          center/cover no-repeat fixed;
+        color: white;
+        line-height: 1.6;
+      }
+
+      body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        z-index: -1;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(10px);
+        padding: 15px 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 10;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        transition: 0.3s;
+      }
+
+      header:hover {
+        background: rgba(0, 0, 0, 0.35);
+      }
+
+      .logo {
+        font-size: 1.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 35px;
+      }
+
+      nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+        position: relative;
+        transition: 0.3s;
+      }
+
+      nav a::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -4px;
+        left: 0;
+        background: #ffeb3b;
+        transition: 0.3s;
+      }
+
+      nav a:hover {
+        color: #ffeb3b;
+      }
+
+      nav a:hover::after {
+        width: 100%;
+      }
+
+      .hero {
+        height: 100vh;
+        background: url('https://www.kampucheathmey.com/wp-content/uploads/2023/01/h0SSlqgVaF2Hkp3M8u9K.webp')
+          center/cover no-repeat fixed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        position: relative;
+      }
+
+      .hero .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+      }
+
+      .hero-content {
+        position: relative;
+        color: white;
+        z-index: 2;
+      }
+
+      .hero-content h1,
+      .hero-content p {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 1s forwards;
+      }
+
+      .hero-content h1 {
+        animation-delay: 0.3s;
+        font-size: 4em;
+        font-family: Khmer OS Muol Light;
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+      }
+
+      .hero-content p {
+        animation-delay: 0.7s;
+        font-size: 1.5em;
+        font-family: Khmer OS Siemreap;
+      }
+
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      section {
+        padding: 60px 50px;
+        max-width: 1100px;
+        margin: auto;
+        background: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(6px);
+        border-radius: 12px;
+        margin-bottom: 40px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+      }
+
+      section h2 {
+        font-size: 2em;
+        margin-bottom: 20px;
+        color: #ffeb3b;
+        font-family: Khmer OS Muol Light;
+        text-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+      }
+
+      section p {
+        color: rgba(255, 255, 255, 0.95);
+        font-size: 1.15em;
+        font-family: Kh Koulen;
+        margin-bottom: 15px;
+      }
+
+      .gallery .images {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin-top: 25px;
+      }
+
+      .gallery img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        border-radius: 12px;
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+      }
+
+      .gallery img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+      }
+
+      .btn-container {
+        text-align: center;
+        margin-top: 30px;
+      }
+
+      .home-btn {
+        display: inline-block;
+        padding: 12px 30px;
+        background: linear-gradient(135deg, #00bbf0, #00204a);
+        color: white;
+        text-decoration: none;
+        border-radius: 30px;
+        font-weight: bold;
+        transition: 0.3s;
+        font-family: Kh Koulen;
+      }
+
+      .home-btn:hover {
+        background: linear-gradient(135deg, #00204a, #00bbf0);
+        transform: scale(1.05);
+        box-shadow: 0 0 15px #00bbf0;
+      }
+
+      footer {
+        text-align: center;
+        background: rgba(0, 0, 0, 0.3);
+        padding: 25px;
+        color: #fff;
+        font-size: 0.95em;
+        margin-top: 50px;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      @media (max-width: 768px) {
+        .hero-content h1 {
+          font-size: 3em;
+        }
+        .hero-content p {
+          font-size: 1.2em;
+        }
+        nav ul {
+          gap: 20px;
+        }
+        section {
+          padding: 40px 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">🇰🇭 Cambodia Map</div>
+      <nav>
+        <ul>
+          <li><a href="../index.htm">Home</a></li>
+          <li><a href="../Provinces.htm">Provinces</a></li>
+          <li><a href="../history.htm">History</a></li>
+          <li><a href="../contact.htm">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="overlay"></div>
+      <div class="hero-content">
+        <h1>ខេត្តកំពង់ឆ្នាំង</h1>
+        <p>ខេត្តទឹកសម្បូរនិងវប្បធម៌ទ្រូងទឹកខ្មែរ</p>
+        <a href="#about" class="home-btn">ស្វែងរកព័ត៌មាន</a>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <h2>ទិដ្ឋភាពទូទៅនៃខេត្តកំពង់ឆ្នាំង</h2>
+      <p>
+        ខេត្តកំពង់ឆ្នាំងស្ថិតនៅភាគកណ្តាលនៃប្រទេសកម្ពុជា
+        មានទីតាំងជាប់ខេត្តកំពង់ស្ពឺ ខេត្តបាត់ដំបង ខេត្តពោធិ៍សាត់
+        និងខេត្តព្រៃវែង។ ខេត្តនេះមានលក្ខណៈភូមិសាស្ត្រដែលភ្លឺឡើងដោយទឹក
+        ក៏អាជីពចំបងគឺ កសិកម្ម និងជលផល។
+      </p>
+      <p>
+        ទីរួមខេត្ត (ក្រុងកំពង់ឆ្នាំង) ជាមជ្ឈមណ្ឌលសេវាកម្ម ស្នាក់នៅ
+        និងពាណិជ្ជកម្មសម្រាប់ភូមិសាស្ត្រព័ន្ធទឹក។ អាកាសធាតុរដូវក្តៅ
+        និងរដូវវស្សាក៏ធ្វើឲ្យមានការដាំដុះចម្រុះនៃបន្លែផ្លែឈើ និងស្រូវ។
+      </p>
+    </section>
+
+    <section class="history" id="history">
+      <h2>ប្រវត្តិនៃខេត្តកំពង់ឆ្នាំង</h2>
+      <p>
+        ប្រវត្តិសាស្ត្រខេត្តកំពង់ឆ្នាំងចាប់ផ្តើមមានឈ្មោះដើមនៅសម័យបុរាណ
+        ជាតំបន់សំខាន់សម្រាប់ពាណិជ្ជកម្មទឹកនិងដីជើង។ ឈ្មោះ “កំពង់ឆ្នាំង”
+        ត្រូវបានគេជឿថា មានដើមមកពីពាក្យ “កំពង់” (កន្លែងចតទូក) និង “ឆ្នាំង”
+        (ឈើឈ្មោះឆ្នាំង)។
+      </p>
+      <p>
+        ក្នុងសម័យអង្គរ តំបន់នេះបានប្រើសម្រាប់ផ្គត់ផ្គង់សារធាតុទៅបណ្តាអង្គរ
+        និងជាតំបន់លូងធនធានទឹក។ នៅសម័យអាណានិគមបារាំង
+        កំពង់ឆ្នាំងត្រូវបានបង្កើតបណ្តាញផ្លូវទឹក និងផ្លូវគោក
+        ដើម្បីភ្ជាប់ចម្ងាយទៅភ្នំពេញ និងតំបន់ផ្សេងទៀត។
+      </p>
+      <p>
+        នៅចំរូងសង្គ្រាមនិងរបបខ្មែរក្រហម
+        ប្រជាជនខេត្តនេះបានទទួលផលប៉ះពាល់យ៉ាងខ្លាំង។ ប៉ុន្តែក្រោយពេលសន្តិភាព
+        តំបន់មានការទើបឡើងវិញ ក្នុងដំណាក់កាលសង់សង់ស្ថាបនា
+        និងការវិវឌ្ឍន៍សេដ្ឋកិច្ច។
+      </p>
+    </section>
+
+    <section class="culture" id="culture">
+      <h2>វប្បធម៌នៃខេត្តកំពង់ឆ្នាំង</h2>
+      <p>
+        វប្បធម៌នៅខេត្តកំពង់ឆ្នាំងសម្បូរទៅដោយសម្លេងទឹក និងប្រពៃណីខ្មែរ។
+        ពិធីបុណ្យចូលឆ្នាំខ្មែរ បុណ្យភ្ជុំបិណ្ឌ បុណ្យអុំទូក និងពិធីបុណ្យសែនព្រហ្ម
+        ត្រូវបានប្រារព្ធយ៉ាងធំធេង។ ការជិះទូក បោះត្រី
+        និងកម្មវិធីទឹកដ៏សំខាន់នៅក្នុងបណ្ដាបុណ្យទាំងឡាយផ្តល់ន័យយ៉ាងស្រាលស្រួលចូលចិត្តដល់ប្រជាជន។
+      </p>
+      <p>
+        សិល្បៈប្រពៃណីដូចជា របាំប្រជាប្រិយ ចម្រៀងខ្មែរ
+        ការ​បំពេញ​សិល្បៈ​រៀបចំក្នុងពិធីដ៏សំខាន់ត្រូវបានរក្សាទុកដោយសហគមន៍។
+        សិប្បកម្មដៃដូចជា ការកាត់ដេរ ការតុបតែងខូដ (កាបូប ដើមខ្ចី)
+        និងការផលិតផ្សេងៗក្នុងភូមិទឹកគឺជាគ្រឿងផ្សំ​ដ៏សំខាន់នៃជីវិតប្រជាជន។
+      </p>
+      <p>
+        អំណោយសេរីភាពនៃទឹក និងសមុទ្រជួបសហគមន៍
+        ជួយឲ្យមានការរួមចំណែកក្នុងការអភិរក្សទេសភាពដ៏ស្រស់ស្អាត។
+        ការរស់នៅនៅជិតទន្លេបានបង្កើតទំនាក់ទំនងជិតស្និទ្ធ
+        ជាមួយធម្មជាតិត្បូនទឹកដ៏សម្បូរបែប។
+      </p>
+    </section>
+
+    <section class="gallery" id="gallery">
+      <h2>ទីកន្លែងល្បីៗនៅខេត្តកំពង់ឆ្នាំង</h2>
+      <div class="images">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Kong_Rei_Mountain_by_Sovithya_-_panoramio.jpg"
+          alt="ទេសភាពខេត្តកំពង់ឆ្នាំង"
+        />
+        <img
+          src="https://kohsantepheapdaily.com.kh/wp-content/uploads/2024/06/109476a96facd85a575224de1b42abd4.jpg"
+          alt="ទេសភាពទឹកកំពង់ឆ្នាំង"
+        />
+        <img
+          src="https://image.thmeythmey.com/pictures/2023/02/04/aa.jpg"
+          alt="ស្រុកទឹក និងសួនច្បារ"
+        />
+      </div>
+    </section>
+
+    <div class="btn-container">
+      <a href="../index.htm" class="home-btn">🏠 ត្រឡប់ទៅទំព័រដើម</a>
+    </div>
+
+    <footer>
+      <p>© ២០២៥ គម្រោងផែនទីខេត្តកម្ពុជា — ទំព័ររបស់ខេត្តកំពង់ឆ្នាំង</p>
+    </footer>
+  </body>
+</html>

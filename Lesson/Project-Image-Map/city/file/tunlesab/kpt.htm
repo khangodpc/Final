@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ខេត្តកំពង់ធំ - មរតកប្រវត្តិសាស្ត្រនិងធម្មជាតិ</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Battambang&family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+<style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Battambang', 'Poppins', sans-serif;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: url('https://upload.wikimedia.org/wikipedia/commons/2/2d/05-Kampong_Thom-nX-6.jpg')
+          center/cover no-repeat fixed;
+        color: white;
+        line-height: 1.6;
+      }
+
+      body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        z-index: -1;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(10px);
+        padding: 15px 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 10;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        transition: 0.3s;
+      }
+
+      header:hover {
+        background: rgba(0, 0, 0, 0.35);
+      }
+
+      .logo {
+        font-size: 1.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 35px;
+      }
+
+      nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+        position: relative;
+        transition: 0.3s;
+      }
+
+      nav a::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -4px;
+        left: 0;
+        background: #ffeb3b;
+        transition: 0.3s;
+      }
+
+      nav a:hover {
+        color: #ffeb3b;
+      }
+
+      nav a:hover::after {
+        width: 100%;
+      }
+
+      .hero {
+        height: 100vh;
+        background: url('https://lp-cms-production.imgix.net/2023-07/shutterstockRF220864246.jpg')
+          center/cover no-repeat fixed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        position: relative;
+      }
+
+      .hero .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+      }
+
+      .hero-content {
+        position: relative;
+        color: white;
+        z-index: 2;
+      }
+
+      .hero-content h1,
+      .hero-content p {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 1s forwards;
+      }
+
+      .hero-content h1 {
+        animation-delay: 0.3s;
+        font-size: 4em;
+        font-family: Khmer OS Muol Light;
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+      }
+
+      .hero-content p {
+        animation-delay: 0.7s;
+        font-size: 1.5em;
+        font-family: Khmer OS Siemreap;
+      }
+
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      section {
+        padding: 60px 50px;
+        max-width: 1100px;
+        margin: auto;
+        background: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(6px);
+        border-radius: 12px;
+        margin-bottom: 40px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+      }
+
+      section h2 {
+        font-size: 2em;
+        margin-bottom: 20px;
+        color: #ffeb3b;
+        font-family: Khmer OS Muol Light;
+        text-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+      }
+
+      section p {
+        color: rgba(255, 255, 255, 0.95);
+        font-size: 1.15em;
+        font-family: Kh Koulen;
+        margin-bottom: 15px;
+      }
+
+      .gallery .images {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin-top: 25px;
+      }
+
+      .gallery img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        border-radius: 12px;
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+      }
+
+      .gallery img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+      }
+
+      .btn-container {
+        text-align: center;
+        margin-top: 30px;
+      }
+
+      .home-btn {
+        display: inline-block;
+        padding: 12px 30px;
+        background: linear-gradient(135deg, #00bbf0, #00204a);
+        color: white;
+        text-decoration: none;
+        border-radius: 30px;
+        font-weight: bold;
+        transition: 0.3s;
+        font-family: Kh Koulen;
+      }
+
+      .home-btn:hover {
+        background: linear-gradient(135deg, #00204a, #00bbf0);
+        transform: scale(1.05);
+        box-shadow: 0 0 15px #00bbf0;
+      }
+
+      footer {
+        text-align: center;
+        background: rgba(0, 0, 0, 0.3);
+        padding: 25px;
+        color: #fff;
+        font-size: 0.95em;
+        margin-top: 50px;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      @media (max-width: 768px) {
+        .hero-content h1 {
+          font-size: 3em;
+        }
+        .hero-content p {
+          font-size: 1.2em;
+        }
+        nav ul {
+          gap: 20px;
+        }
+        section {
+          padding: 40px 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">🇰🇭 Cambodia Map</div>
+      <nav>
+        <ul>
+          <li><a href="../index.htm">Home</a></li>
+          <li><a href="../Provinces.htm">Provinces</a></li>
+          <li><a href="../history.htm">History</a></li>
+          <li><a href="../contact.htm">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="overlay"></div>
+      <div class="hero-content">
+        <h1>ខេត្តកំពង់ធំ</h1>
+        <p>ខេត្តអរិយធម៌វប្បធម៌ បេស្ដន៏ស្រុកនៃប្រាសាទព្រែកខ្ចី</p>
+        <a href="#about" class="home-btn">ស្វែងរកព័ត៌មាន</a>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <h2> ទិដ្ឋភាពទូទៅនៃខេត្តកំពង់ធំ</h2>
+      <p>
+        ខេត្តកំពង់ធំគឺជាខេត្តមួយស្ថិតនៅភាគកណ្តាលនៃប្រទេសកម្ពុជា។ ខេត្តនេះជាខេត្តធំមួយទៀតនៅក្នុងតំបន់ទី២ ដែលមានទីតាំងស្ថិតនៅចន្លោះរវាងរាជធានីភ្នំពេញ និងខេត្តសៀមរាប។ ខេត្តនេះមានព្រំប្រទល់ជាប់នឹងខេត្តកំពង់ចាម ខេត្តត្បូងឃ្មុំ ខេត្តស្ទឹងត្រែង ខេត្តព្រៃវែង ខេត្តសៀមរាប និងខេត្តឧត្តរមានជ័យ។
+      </p>
+      <p>
+        ទេសភាពខេត្តមានជួរភ្នំ តំបន់ដីទាប ទន្លេ និងបឹងធំៗ ជាពិសេសទន្លេសានហ្កេក និងបឹងសន្តិភាព។ កំពង់ធំក៏ជាខេត្តដែលមានអភិវឌ្ឍន៍កសិកម្មយ៉ាងខ្លាំង ហើយមានប្រជាជនរស់នៅដោយអាស្រ័យលើការដាំដុះស្រូវ អង្ករ បន្លែ និងផលផ្លែឈើ។ លើសពីនេះ ខេត្តកំពង់ធំក៏មានដើមឈើធម្មជាតិ និងជាលំនៅដ្ឋានសត្វព្រៃផងដែរ។
+      </p>
+    </section>
+
+    <section class="history" id="history">
+      <h2> ប្រវត្តិនៃខេត្តកំពង់ធំ</h2>
+      <p>
+        ខេត្តកំពង់ធំមានប្រវត្តិសាស្ត្រយូរអង្វែង ចាប់ពីសម័យបុរាណរបស់អាណាចក្រ ចេញមកដល់សម័យអង្គរ។ 
+        តំបន់នេះជាមូលដ្ឋានសំខាន់មួយសម្រាប់សំណង់អគារសាសនា និងអភិវឌ្ឍសិល្បៈខ្មែរបុរាណ។
+        ប្រាសាទសំខាន់ៗដូចជា ប្រាសាទសំបូរព្រៃគុក ដែលត្រូវបានកត់ត្រាជាសម្បត្តិពិភពលោកដោយអង្គការយូណេស្កូ។ 
+        ប្រាសាទនេះជាចំណាំដ៏សំខាន់ដែលបង្ហាញពីស្ថាបត្យកម្ម និងជំនឿសាសនាខ្មែរបុរាណ។
+      </p>
+      <p>
+        នៅសម័យអាណានិគមបារាំង ខេត្តនេះត្រូវបានរួមបញ្ចូលក្នុងសហគមន៍សេដ្ឋកិច្ចនិងការដឹកជញ្ជូនផ្លូវគោក និងផ្លូវទឹក។ 
+        កំពង់ធំក៏ធ្លាប់ជាសេវាកម្មសំខាន់ក្នុងការផ្គត់ផ្គង់ទំនិញពីភាគខាងជើងទៅភាគខាងត្បូងនៃប្រទេស។ 
+        ក្នុងសម័យសង្គ្រាម និងរបបខ្មែរក្រហម ខេត្តនេះជួបប្រទះការបាត់បង់ធនធាន និងជីវិតប្រជាជនជាច្រើន។ ប៉ុន្តែបន្ទាប់ពីសន្តិភាពត្រលប់វិញ ខេត្តកំពង់ធំក៏បានអភិវឌ្ឍឡើងវិញយ៉ាងរហ័ស។
+      </p>
+    </section>
+
+    <section class="culture" id="culture">
+      <h2> វប្បធម៌នៃខេត្តកំពង់ធំ</h2>
+      <p>
+        វប្បធម៌នៅខេត្តកំពង់ធំចម្រុះរវាងអរិយធម៌បុរាណ និងអភិវឌ្ឍន៍សង្គមសម័យថ្មី។ ប្រជាជននៅទីនេះបន្តអនុវត្តន៍ទម្លាប់ជាភូមិខ្មែរ ដូចជា ពិធីបុណ្យចូលឆ្នាំខ្មែរ បុណ្យភ្ជុំបិណ្ឌ បុណ្យកាន់បិណ្ឌ និងអុំទូក។
+      </p>
+      <p>
+        សិល្បៈប្រពៃណីដូចជា របាំប្រជាប្រិយ ចម្រៀងខ្មែរ និងកាកៃយ៉ាងនានា ត្រូវបានរក្សាទុកយ៉ាងខ្លាំង តាមរយៈសាលាបង្រៀនសិល្បៈជាតិ និងកម្មវិធីសហគមន៍។ សិប្បកម្មដៃដូចជា កាត់ដេរ សូត្រស្លាបស្រព និងបោះពុម្ពក្រណាត់ក៏ត្រូវបានអភិរក្ស និងបង្រៀនទៅជំនាន់ក្រោយ។
+      </p>
+      <p>
+        បន្ថែមពីនេះ ប្រជាជនកំពង់ធំមានស្មារតីសហគមន៍ខ្ពស់ ការរួមចំណែកក្នុងពិធីបុណ្យជាតិ និងស្រុក តែងតែទទួលបានការសហការយ៉ាងសកម្មពីប្រជាពលរដ្ឋ។
+      </p>
+    </section>
+
+    <section class="gallery" id="gallery">
+      <h2> ទីកន្លែងល្បីៗនៅខេត្តកំពង់ធំ</h2>
+      <div class="images">
+        <img src="https://cambodiapropertyreport.com//storage/posts/July2021/153.jpg" alt="ប្រាសាទសំបូរព្រៃគុក" />
+        <img src="https://phkaslapartner.com/wp-content/uploads/2023/08/image_2023-08-18_07-57-30-edited.jpg" alt="ប្រាសាទបុរាណ" />
+        <img src="https://static.information.gov.kh/rails/active_storage/representations/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBM0ZxQnc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--9722b3d45a387265a961b573bc1d7ed5df76b9b2/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9MY21WemFYcGxTU0lNT1RBd2VEWXdNQVk2QmtWVSIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--70cbddbba2e46c7ca8ac0c1f8b8316d88752e16d/photo_2025-04-07_08-33-01.jpg" alt="ទីក្រុងកំពង់ធំ" />
+        <img src="https://asset.tovtrip.com//uploads/0001/1554/2023/04/10/125.png"/>
+        <img src="https://refile.tnaot.com/image/2019/08/27/23adfcb249ae4624859ddda905674543.jpg?x-oss-process=image/watermark,image_RS5wbmc_eC1vc3MtcHJvY2Vzcz1pbWFnZS9yZXNpemUsUF8yMA"/>
+        <img src="https://static.information.gov.kh/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBKzluQXc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--9822789d909e8250fd647b444df553d7e23d25f5/F22A8A50-58E8-47AF-B2F3-5C5F0FD.jpeg"/>
+      </div>
+    </section>
+    <div class="btn-container">
+      <a href="../index.htm" class="home-btn">🏠 ត្រឡប់ទៅទំព័រដើម</a>
+    </div>
+
+    <footer>
+      <p>© ២០២៥ គម្រោងផែនទីខេត្តកម្ពុជា — ទំព័ររបស់ខេត្តត្បូងឃ្មុំ</p>
+    </footer>
+  </body>
+</html>
